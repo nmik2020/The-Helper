@@ -11,4 +11,5 @@
 @interface LoanDetailViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UILabel *result;
 @property (nonatomic, strong) NSArray *loanamt;
+@property (nonatomic,retain) NSString *s;
 @end

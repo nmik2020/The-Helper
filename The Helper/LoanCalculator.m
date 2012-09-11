@@ -24,6 +24,7 @@
 - (void)calculateLoan:(id)sender
 {
     double emi = [principalAmount.text doubleValue]*[rate.text doubleValue]*pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])/(pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])-1);
+
     NSLog(@"emi %f",emi);
     [_results objectAtIndex:emi];
     [principalAmount resignFirstResponder];
@@ -59,7 +60,7 @@
     {
         LoanDetailViewController *detailViewController = 
         segue.destinationViewController;
-        detailViewController.result.text = [_results objectAtIndex:0];
+        detailViewController.s = @"fghfg";
         
        // NSIndexPath *myIndexPath = [self.showLabel 
                                    // text];

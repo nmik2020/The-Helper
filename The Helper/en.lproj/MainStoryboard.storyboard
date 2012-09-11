@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="zux-27-eWY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -40,7 +40,7 @@
                                 </state>
                                 <connections>
                                     <action selector="calculateLoan:" destination="2" eventType="touchUpInside" id="gou-uE-Ggy"/>
-                                    <segue destination="6jm-nX-CDF" kind="push" id="uJV-lK-o4x"/>
+                                    <segue destination="6jm-nX-CDF" kind="push" identifier="Result" id="uJV-lK-o4x"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loan Term" minimumFontSize="17" clearButtonMode="whileEditing" id="BvW-L8-Dky">
@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="SEJ-Mh-Lxi">
-                                <rect key="frame" x="136" y="99" width="119" height="67"/>
+                                <rect key="frame" x="38" y="104" width="196" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -86,24 +86,44 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="lpq-M3-WEz"/>
+                    <connections>
+                        <outlet property="result" destination="SEJ-Mh-Lxi" id="pcf-um-0hI"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1030" y="-195"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Item-->
         <scene sceneID="IlD-El-IGE">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oR5-yi-xET" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="zux-27-eWY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="0hr-Ri-U7k"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Kx5-1a-HDq">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4" kind="relationship" relationship="rootViewController" id="KRg-Pw-Mub"/>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="Vce-gx-AnR"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-424" y="209"/>
+            <point key="canvasLocation" x="124" y="-123"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="eZe-Cu-hZc">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RIc-ec-RM0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="Fu9-O6-hfB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="QOs-3x-Wew"/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rOS-Oz-OQY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3" kind="relationship" relationship="rootViewController" id="eAP-0j-l4h"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="118" y="448"/>
         </scene>
         <!--Calculator - EMI-->
         <scene sceneID="13">
@@ -137,11 +157,15 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6jm-nX-CDF" kind="push" id="R9b-yt-DwU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="EMI" image="second" id="6"/>
+                    <navigationItem key="navigationItem" id="PGh-1I-dnv"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="653" y="498"/>
@@ -159,12 +183,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="zux-27-eWY" kind="relationship" relationship="viewControllers" id="Gaw-8l-aWH"/>
+                        <segue destination="Fu9-O6-hfB" kind="relationship" relationship="viewControllers" id="37o-6l-3G6"/>
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="-334" y="130"/>
         </scene>
     </scenes>
     <resources>
@@ -199,4 +223,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="R9b-yt-DwU"/>
+    </inferredMetricsTieBreakers>
 </document>
