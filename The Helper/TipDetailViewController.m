@@ -16,7 +16,7 @@
 {
     
     [super viewDidLoad];
-    NSString *myNewString = [NSString stringWithFormat:@"%f", self.tip];
+    NSString *myNewString = [NSString stringWithFormat:@"%0.02f", self.tip];
     self.tipamount.text = myNewString;
     
 }
