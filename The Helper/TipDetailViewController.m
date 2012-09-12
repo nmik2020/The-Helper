@@ -9,5 +9,28 @@
 #import "TipDetailViewController.h"
 
 @implementation TipDetailViewController
+@synthesize tipamount=_tipamount;
+@synthesize tip;
+
+- (void)viewDidLoad
+{
+    
+    [super viewDidLoad];
+    NSString *myNewString = [NSString stringWithFormat:@"%f", self.tip];
+    self.tipamount.text = myNewString;
+    
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 @end
+

@@ -9,15 +9,25 @@
 #import "LoanDetailViewController.h"
 
 @implementation LoanDetailViewController
-@synthesize loanamt;
-@synthesize result=_result;
-@synthesize s;
+@synthesize monthlypayment=_monthlypayment;
+@synthesize simpleinterest=_simpleinterest;
+@synthesize totalpayment=_totalpayment;
+@synthesize emi;
+@synthesize interest;
+@synthesize totalamount;
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
-    	// Do any additional setup after loading the view.
-    self.result.text = self.s;
+    NSString *myNewString = [NSString stringWithFormat:@"%f", self.emi];
+    NSString *myNewString2 = [NSString stringWithFormat:@"%f", self.interest];
+    NSString *myNewString3 = [NSString stringWithFormat:@"%f", self.totalamount];
+
+    // Do any additional setup after loading the view.
+    self.monthlypayment.text = myNewString;
+    self.simpleinterest.text = myNewString2;
+    self.totalpayment.text = myNewString3;
+
 }
 
 - (void)viewDidUnload

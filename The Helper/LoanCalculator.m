@@ -15,22 +15,51 @@
 
 @implementation LoanCalculator
 @synthesize rate,loanterm,principalAmount,showLabel,calculate;
-@synthesize results=_results;
+@synthesize emi = _emi;
+@synthesize interest = _interest;
+@synthesize totalAmount = _totalAmount;
+@synthesize mySlider;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
-- (void)calculateLoan:(id)sender
-{
-    double emi = [principalAmount.text doubleValue]*[rate.text doubleValue]*pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])/(pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])-1);
+    
 
-    NSLog(@"emi %f",emi);
-    [_results objectAtIndex:emi];
-    [principalAmount resignFirstResponder];
-    [rate resignFirstResponder];
-    [loanterm resignFirstResponder];
 }
+- (IBAction) sliderValueChanged:(UISlider *)sender {  
+  	UISlider *slider = (UISlider *) sender;
+	int progressAsInt =(int)(slider.value + 0.5f);
+	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
+	rate.text = newText; 
+}  
+- (IBAction)calculateLoan:(id)sender
+{
+//     _emi = [principalAmount.text doubleValue]*[rate.text doubleValue]*pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])/(pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])-1);
+    [self calculateEmi];
+    [self calculateInterest];
+    [self calculateTotalAmount];
+    NSLog(@"emi %f",_emi);
+    NSLog(@"Interest %f",_interest);
+    NSLog(@"Total Amount %f",_totalAmount);
+    //[principalAmount resignFirstResponder];
+    //[rate resignFirstResponder];
+    //[loanterm resignFirstResponder];
+}
+- (double)calculateEmi
+{
+   _emi = [principalAmount.text doubleValue]*[rate.text doubleValue]*pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])/(pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])-1);
+    return _emi;
+}
+- (double)calculateInterest{
+    _interest = [principalAmount.text doubleValue]*[rate.text doubleValue]*[loanterm.text doubleValue]/100;
+    return _interest;
+}
+- (double)calculateTotalAmount{
+    _totalAmount = [principalAmount.text doubleValue] + _interest;
+    return _totalAmount;
+}
+
 - (IBAction)backgroundTouchedHideKeyboard:(id)sender  
 {  
     [principalAmount resignFirstResponder];
@@ -60,10 +89,11 @@
     {
         LoanDetailViewController *detailViewController = 
         segue.destinationViewController;
-        detailViewController.s = @"fghfg";
-        
-       // NSIndexPath *myIndexPath = [self.showLabel 
-                                   // text];
+        detailViewController.emi = _emi;
+        detailViewController.interest = _interest;
+        detailViewController.totalamount = _totalAmount;
+
+     
     }
 }   
 

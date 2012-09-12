@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TipDetailViewController : UIViewController
-
+@property (nonatomic, strong) IBOutlet UILabel *tipamount;
+@property (nonatomic, assign) double tip;
 @end

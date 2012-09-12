@@ -17,7 +17,7 @@
 		2282836415FF085E00AF9416 /* LoanCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282836315FF085E00AF9416 /* LoanCalculator.m */; };
 		2282836615FF085E00AF9416 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 2282836515FF085E00AF9416 /* first.png */; };
 		2282836815FF085E00AF9416 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2282836715FF085E00AF9416 /* first@2x.png */; };
-		2282836B15FF085E00AF9416 /* EMICalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282836A15FF085E00AF9416 /* EMICalculator.m */; };
+		2282836B15FF085E00AF9416 /* TipCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282836A15FF085E00AF9416 /* TipCalculator.m */; };
 		2282836D15FF085E00AF9416 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 2282836C15FF085E00AF9416 /* second.png */; };
 		2282836F15FF085E00AF9416 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2282836E15FF085E00AF9416 /* second@2x.png */; };
 		2282837715FF085E00AF9416 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2282837615FF085E00AF9416 /* SenTestingKit.framework */; };
@@ -26,6 +26,7 @@
 		2282838115FF085E00AF9416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2282837F15FF085E00AF9416 /* InfoPlist.strings */; };
 		2282838415FF085E00AF9416 /* The_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282838315FF085E00AF9416 /* The_HelperTests.m */; };
 		2282839315FF1D4D00AF9416 /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282839215FF1D4D00AF9416 /* LoanDetailViewController.m */; };
+		22C87AAF160063FE003A1AD5 /* TipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,8 @@
 		2282836315FF085E00AF9416 /* LoanCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanCalculator.m; sourceTree = "<group>"; };
 		2282836515FF085E00AF9416 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		2282836715FF085E00AF9416 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		2282836915FF085E00AF9416 /* EMICalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMICalculator.h; sourceTree = "<group>"; };
-		2282836A15FF085E00AF9416 /* EMICalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMICalculator.m; sourceTree = "<group>"; };
+		2282836915FF085E00AF9416 /* TipCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipCalculator.h; sourceTree = "<group>"; };
+		2282836A15FF085E00AF9416 /* TipCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipCalculator.m; sourceTree = "<group>"; };
 		2282836C15FF085E00AF9416 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		2282836E15FF085E00AF9416 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		2282837515FF085E00AF9416 /* The HelperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The HelperTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +67,8 @@
 		2282838315FF085E00AF9416 /* The_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_HelperTests.m; sourceTree = "<group>"; };
 		2282839115FF1D4D00AF9416 /* LoanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailViewController.h; sourceTree = "<group>"; };
 		2282839215FF1D4D00AF9416 /* LoanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailViewController.m; sourceTree = "<group>"; };
+		22C87AAD160063FE003A1AD5 /* TipDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipDetailViewController.h; sourceTree = "<group>"; };
+		22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +137,10 @@
 				2282836315FF085E00AF9416 /* LoanCalculator.m */,
 				2282836515FF085E00AF9416 /* first.png */,
 				2282836715FF085E00AF9416 /* first@2x.png */,
-				2282836915FF085E00AF9416 /* EMICalculator.h */,
-				2282836A15FF085E00AF9416 /* EMICalculator.m */,
+				2282836915FF085E00AF9416 /* TipCalculator.h */,
+				2282836A15FF085E00AF9416 /* TipCalculator.m */,
+				22C87AAD160063FE003A1AD5 /* TipDetailViewController.h */,
+				22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */,
 				2282836C15FF085E00AF9416 /* second.png */,
 				2282836E15FF085E00AF9416 /* second@2x.png */,
 				2282835415FF085E00AF9416 /* Supporting Files */,
@@ -287,8 +292,9 @@
 				2282835A15FF085E00AF9416 /* main.m in Sources */,
 				2282835E15FF085E00AF9416 /* PrincipalAppDelegate.m in Sources */,
 				2282836415FF085E00AF9416 /* LoanCalculator.m in Sources */,
-				2282836B15FF085E00AF9416 /* EMICalculator.m in Sources */,
+				2282836B15FF085E00AF9416 /* TipCalculator.m in Sources */,
 				2282839315FF1D4D00AF9416 /* LoanDetailViewController.m in Sources */,
+				22C87AAF160063FE003A1AD5 /* TipDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +464,7 @@
 				2282838915FF085E00AF9416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2282838A15FF085E00AF9416 /* Build configuration list for PBXNativeTarget "The HelperTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +473,7 @@
 				2282838C15FF085E00AF9416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
