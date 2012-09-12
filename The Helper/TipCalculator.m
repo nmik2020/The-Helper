@@ -21,14 +21,13 @@
 }
 -(IBAction)calculateTip:(id)sender{
     _tip = [rate.text doubleValue]/100*[billAmount.text doubleValue];
-    NSLog(@"tip %f",_tip);
 
   
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *slider = (UISlider *) sender;
 	int progressAsInt =(int)(slider.value + 0.5f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
+	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
 	rate.text = newText; 
 } 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

@@ -18,8 +18,7 @@
 @synthesize emi = _emi;
 @synthesize interest = _interest;
 @synthesize totalAmount = _totalAmount;
-@synthesize mySlider;
-
+float monthlyrate;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,28 +34,24 @@
 }  
 - (IBAction)calculateLoan:(id)sender
 {
-//     _emi = [principalAmount.text doubleValue]*[rate.text doubleValue]*pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])/(pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])-1);
+     
     [self calculateEmi];
     [self calculateInterest];
     [self calculateTotalAmount];
-    NSLog(@"emi %f",_emi);
-    NSLog(@"Interest %f",_interest);
-    NSLog(@"Total Amount %f",_totalAmount);
-    //[principalAmount resignFirstResponder];
-    //[rate resignFirstResponder];
-    //[loanterm resignFirstResponder];
+
+   
 }
-- (double)calculateEmi
-{
-   _emi = [principalAmount.text doubleValue]*[rate.text doubleValue]*pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])/(pow((1+[rate.text doubleValue]), [loanterm.text doubleValue])-1);
+- (float)calculateEmi
+{   monthlyrate = ([rate.text floatValue]/12/100);
+   _emi = [principalAmount.text floatValue]*monthlyrate*pow((1+monthlyrate), [loanterm.text floatValue])/(pow((1+monthlyrate), [loanterm.text floatValue])-1);
     return _emi;
 }
-- (double)calculateInterest{
-    _interest = [principalAmount.text doubleValue]*[rate.text doubleValue]*[loanterm.text doubleValue]/100;
+- (float)calculateInterest{
+    _interest = ((_emi*[loanterm.text floatValue]) - [principalAmount.text floatValue]);
     return _interest;
 }
-- (double)calculateTotalAmount{
-    _totalAmount = [principalAmount.text doubleValue] + _interest;
+- (float)calculateTotalAmount{
+    _totalAmount = [principalAmount.text floatValue] + _interest;
     return _totalAmount;
 }
 

@@ -19,14 +19,14 @@
 {
     
     [super viewDidLoad];
-    NSString *myNewString = [NSString stringWithFormat:@"%f", self.emi];
-    NSString *myNewString2 = [NSString stringWithFormat:@"%f", self.interest];
-    NSString *myNewString3 = [NSString stringWithFormat:@"%f", self.totalamount];
+    NSString *payment = [NSString stringWithFormat:@"%0.02f", self.emi];
+    NSString *simple = [NSString stringWithFormat:@"%0.02f", self.interest];
+    NSString *total = [NSString stringWithFormat:@"%0.02f", self.totalamount];
 
     // Do any additional setup after loading the view.
-    self.monthlypayment.text = myNewString;
-    self.simpleinterest.text = myNewString2;
-    self.totalpayment.text = myNewString3;
+    self.monthlypayment.text = payment;
+    self.simpleinterest.text = simple;
+    self.totalpayment.text = total;
 
 }
 
