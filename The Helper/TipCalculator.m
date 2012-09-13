@@ -20,7 +20,16 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 -(IBAction)calculateTip:(id)sender{
+    if ((![billAmount.text length]) || (![rate.text length]) ) 
+    {
+        
+        UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+        [myAlert show];
+    }
+    else{
+
     _tip = [rate.text doubleValue]/100*[billAmount.text doubleValue];
+    }
 
   
 }

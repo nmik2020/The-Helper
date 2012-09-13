@@ -25,6 +25,8 @@ float monthlyrate;
 	// Do any additional setup after loading the view, typically from a nib.
     
 
+    
+
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *slider = (UISlider *) sender;
@@ -34,10 +36,17 @@ float monthlyrate;
 }  
 - (IBAction)calculateLoan:(id)sender
 {
-     
+    if ((![loanterm.text length]) || (![rate.text length]) ||(![principalAmount.text length])) 
+    {
+        
+        UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+        [myAlert show];
+    }
+    else{
     [self calculateEmi];
     [self calculateInterest];
     [self calculateTotalAmount];
+    }
 
    
 }
