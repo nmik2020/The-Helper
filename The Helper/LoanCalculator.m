@@ -19,6 +19,7 @@
 @synthesize interest = _interest;
 @synthesize totalAmount = _totalAmount;
 float monthlyrate;
+float ratevalue;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,7 +43,15 @@ float monthlyrate;
         UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
         [myAlert show];
     }
-    else{
+    else if(([loanTerm.text floatValue])<0 || ([rate.text floatValue]<0) || [principalAmount.text floatValue]<0) 
+    {
+        
+        UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+        [myAlert show];
+    }
+    else
+    {
+        
     [self calculateEmi];
     [self calculateInterest];
     [self calculateTotalAmount];
@@ -51,7 +60,11 @@ float monthlyrate;
    
 }
 - (float)calculateEmi
-{   monthlyrate = ([rate.text floatValue]/12/100);
+{   ratevalue = [rate.text floatValue];
+    if (ratevalue<0) {
+        ratevalue =0;
+    }
+    monthlyrate = (ratevalue/12/100);
    _emi = [principalAmount.text floatValue]*monthlyrate*pow((1+monthlyrate), [loanterm.text floatValue])/(pow((1+monthlyrate), [loanterm.text floatValue])-1);
     return _emi;
 }
