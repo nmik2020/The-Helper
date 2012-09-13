@@ -28,7 +28,7 @@
     }
     else{
 
-    _tip = [rate.text doubleValue]/100*[billAmount.text doubleValue];
+    _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
     }
 
   
@@ -36,7 +36,7 @@
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *slider = (UISlider *) sender;
 	int progressAsInt =(int)(slider.value + 0.5f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
+	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
 	rate.text = newText; 
 } 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -48,6 +48,7 @@
     [super viewDidUnload];
     self.billAmount =nil;
     self.rate = nil;
+    self.billAmount = nil;
     // Release any retained subviews of the main view.
 }
 

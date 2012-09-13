@@ -209,7 +209,7 @@
                                     <segue destination="Y6R-CU-cIF" kind="push" identifier="Result" id="1Xo-HO-9GP"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="100" id="1wf-Dn-SmH">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" id="1wf-Dn-SmH">
                                 <rect key="frame" x="130" y="119" width="118" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -288,45 +288,6 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="LoanCalculator" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoanCalculator.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTouchedHideKeyboard:"/>
-                <relationship kind="action" name="calculateLoan:"/>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loanterm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="principalAmount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="showLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoanDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoanDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="monthlypayment" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="simpleinterest" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalpayment" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TipCalculator" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipCalculator.h"/>
-            <relationships>
-                <relationship kind="action" name="calculateTip:"/>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="outlet" name="billAmount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="TipDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tipamount" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
