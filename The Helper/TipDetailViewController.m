@@ -2,8 +2,8 @@
 //  TipDetailViewController.m
 //  The Helper
 //
-//  Created by qbadmin on 9/12/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Nidal on 9/12/12.
+//  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
 #import "TipDetailViewController.h"
@@ -24,7 +24,10 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+}
+- (void)viewWillDisappear:(BOOL)animated 
+{
+    self.tipamount.text = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

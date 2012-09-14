@@ -2,8 +2,9 @@
 //  PrincipalSecondViewController.h
 //  The Helper
 //
-//  Created by qbadmin on 9/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Nidal on 9/12/12.
+//  Copyright (c) 2012 __ABC Corp__. All rights reserved.
+//
 //
 
 #import <UIKit/UIKit.h>
@@ -18,7 +19,9 @@
 @property (nonatomic, strong) IBOutlet UIButton *calculate;
 @property float tip;
 
-- (IBAction) sliderValueChanged:(id)sender;  
+- (IBAction)sliderValueChanged:(id)sender;  
 - (IBAction)calculateTip:(id)sender; 
+-(void)negativeAlert;
+-(void)fieldEmptyAlert;
 
 @end

@@ -2,8 +2,9 @@
 //  PrincipalSecondViewController.m
 //  The Helper
 //
-//  Created by qbadmin on 9/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+//  Created by Nidal on 9/12/12.
+//  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
 #import "TipCalculator.h"
@@ -17,21 +18,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
 }
 -(IBAction)calculateTip:(id)sender{
     if ((![billAmount.text length]) || (![rate.text length]) ) 
+    {   [self fieldEmptyAlert];  
+    }else if(([billAmount.text floatValue])<0 || ([rate.text floatValue]<0) ) 
     {
+        [self negativeAlert]; 
         
-        UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
-        [myAlert show];
     }
+
     else{
 
     _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
     }
 
   
+}
+-(void)negativeAlert
+{
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    [myAlert show];  
+}
+-(void)fieldEmptyAlert
+{
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    [myAlert show];
+}
+
+- (void)viewWillDisappear:(BOOL)animated 
+{
+    billAmount.text = nil;
+    rate.text = nil;
+    
+    
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *slider = (UISlider *) sender;
@@ -49,7 +70,6 @@
     self.billAmount =nil;
     self.rate = nil;
     self.billAmount = nil;
-    // Release any retained subviews of the main view.
 }
 
 

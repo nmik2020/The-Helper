@@ -2,13 +2,14 @@
 //  LoanDetailViewController.h
 //  The Helper
 //
-//  Created by qbadmin on 9/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+//  Created by Nidal on 9/12/12.
+//  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface LoanDetailViewController : UIViewController
+@interface LoanDetailViewController : UIViewController       
 @property (nonatomic, strong) IBOutlet UILabel *monthlypayment;
 @property (nonatomic, strong) IBOutlet UILabel *simpleinterest;
 @property (nonatomic, strong) IBOutlet UILabel *totalpayment;

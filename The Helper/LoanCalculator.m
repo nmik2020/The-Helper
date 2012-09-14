@@ -2,8 +2,9 @@
 //  PrincipalFirstViewController.m
 //  The Helper
 //
-//  Created by qbadmin on 9/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+//  Created by Nidal on 9/12/12.
+//  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
 #import "LoanCalculator.h"
@@ -23,10 +24,6 @@ float ratevalue;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-
-    
 
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
@@ -38,16 +35,12 @@ float ratevalue;
 - (IBAction)calculateLoan:(id)sender
 {
     if ((![loanterm.text length]) || (![rate.text length]) ||(![principalAmount.text length])) 
-    {
-        
-        UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
-        [myAlert show];
+    {        
+    [self fieldEmptyAlert];
     }
     else if(([loanTerm.text floatValue])<0 || ([rate.text floatValue]<0) || [principalAmount.text floatValue]<0) 
     {
-        
-        UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
-        [myAlert show];
+    [self negativeAlert];
     }
     else
     {
@@ -58,6 +51,16 @@ float ratevalue;
     }
 
    
+}
+-(void)negativeAlert
+{
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    [myAlert show];  
+}
+-(void)fieldEmptyAlert
+{
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    [myAlert show];
 }
 - (float)calculateEmi
 {   ratevalue = [rate.text floatValue];
@@ -91,9 +94,17 @@ float ratevalue;
     self.principalAmount = nil;
     self.rate = nil;
     self.loanterm = nil;
-    // Release any retained subviews of the main view.
+  
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated 
+{
+    principalAmount.text = nil;
+    rate.text = nil;
+    loanterm.text = nil;
+    
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
