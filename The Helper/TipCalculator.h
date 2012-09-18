@@ -12,13 +12,17 @@
 @interface TipCalculator : UIViewController{
     UITextField *billAmount;
     UITextField *rate;
+    UISlider *slider;
 }
 
-@property (nonatomic,retain) IBOutlet UITextField *billAmount;
-@property (nonatomic,retain) IBOutlet UITextField *rate;
+@property (nonatomic,strong) IBOutlet UITextField *billAmount;
+@property (nonatomic,strong) IBOutlet UITextField *rate;
 @property (nonatomic, strong) IBOutlet UIButton *calculate;
 @property float tip;
+@property (nonatomic, strong) IBOutlet UISlider *slider;
 
+
+- (IBAction) rateTextValueChanged:(UITextField *)sender;  
 - (IBAction)sliderValueChanged:(id)sender;  
 - (IBAction)calculateTip:(id)sender; 
 -(void)negativeAlert;

@@ -11,5 +11,5 @@
 
 @interface TipDetailViewController : UIViewController
 @property (nonatomic, strong) IBOutlet UILabel *tipamount;
-@property (nonatomic, assign) double tip;
+@property (nonatomic, assign) float tip;
 @end

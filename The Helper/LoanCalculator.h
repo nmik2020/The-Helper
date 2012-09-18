@@ -14,16 +14,20 @@ UITextField *principalAmount;
     UITextField *rate;
     UITextField *loanTerm;
     UIButton *calculate;
+    UISlider *slider;
     }
-@property (nonatomic,retain) IBOutlet UITextField *principalAmount;
-@property (nonatomic,retain) IBOutlet UITextField *rate;
-@property (nonatomic,retain) IBOutlet UITextField *loanterm;
+@property (nonatomic,strong) IBOutlet UITextField *principalAmount;
+@property (nonatomic,strong) IBOutlet UITextField *rate;
+@property (nonatomic,strong) IBOutlet UITextField *loanterm;
 @property (nonatomic, strong) IBOutlet UILabel *showLabel;
 @property (nonatomic, strong) IBOutlet UIButton *calculate;
+@property (nonatomic, strong) IBOutlet UISlider *slider;
+
 @property float emi;
 @property float interest;
 @property float totalAmount;
 - (IBAction) sliderValueChanged:(id)sender;  
+- (IBAction) rateTextValueChanged:(UITextField *)sender;  
 - (IBAction)calculateLoan:(id)sender; 
 - (float)calculateEmi; 
 - (float)calculateInterest; 

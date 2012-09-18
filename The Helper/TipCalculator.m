@@ -14,29 +14,49 @@
 
 @implementation TipCalculator
 @synthesize tip= _tip;
-@synthesize billAmount,rate,calculate;
+@synthesize billAmount,rate,calculate,slider;
+int const Zero = 0;
+float Percentage_divisor= 1/100;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
+
 -(IBAction)calculateTip:(id)sender{
     if ((![billAmount.text length]) || (![rate.text length]) ) 
     {   [self fieldEmptyAlert];  
-    }else if(([billAmount.text floatValue])<0 || ([rate.text floatValue]<0) ) 
+    }else if(([billAmount.text floatValue])<Zero || ([rate.text floatValue]<Zero) ) 
     {
         [self negativeAlert]; 
         
     }
+    else if([rate.text floatValue]>100)
+    {
+        [self rateOutOfBoundsAlert];
+    }
+
     else{
     _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
     }
 }
+- (IBAction) rateTextValueChanged:(UITextField *)sender {  
+    [slider setValue:[rate.text floatValue] animated:YES];
+}
+
+-(void)rateOutOfBoundsAlert
+{
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"RATE CANT BE GREATER THAN 100" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    [myAlert show];  
+}
+
+
 -(void)negativeAlert
 {
     UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
     [myAlert show];  
 }
+
 -(void)fieldEmptyAlert
 {
     UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
@@ -47,10 +67,11 @@
 {
     billAmount.text = nil;
     rate.text = nil;
+    slider.value = 0;
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
-  	UISlider *slider = (UISlider *) sender;
-	int progressAsInt =(int)(slider.value + 0.5f);
+  	UISlider *rateslider = (UISlider *) sender;
+	int progressAsInt =(int)(rateslider.value + 0.5f);
 	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
 	rate.text = newText; 
 } 
@@ -65,8 +86,6 @@
     self.rate = nil;
     self.billAmount = nil;
 }
-
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
