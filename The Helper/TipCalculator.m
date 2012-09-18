@@ -28,13 +28,9 @@
         [self negativeAlert]; 
         
     }
-
     else{
-
     _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
     }
-
-  
 }
 -(void)negativeAlert
 {
@@ -51,8 +47,6 @@
 {
     billAmount.text = nil;
     rate.text = nil;
-    
-    
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *slider = (UISlider *) sender;

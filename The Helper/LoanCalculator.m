@@ -21,6 +21,8 @@
 @synthesize totalAmount = _totalAmount;
 float monthlyrate;
 float ratevalue;
+int numberOfMonths = 12;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,8 +69,9 @@ float ratevalue;
     if (ratevalue<0) {
         ratevalue =0;
     }
-    monthlyrate = (ratevalue/12/100);
+    monthlyrate = (ratevalue/numberOfMonths/100); //Converting the annual rate into monthly rate
    _emi = [principalAmount.text floatValue]*monthlyrate*pow((1+monthlyrate), [loanterm.text floatValue])/(pow((1+monthlyrate), [loanterm.text floatValue])-1);
+    //the mathematical formula to obtain the emi
     return _emi;
 }
 - (float)calculateInterest{
