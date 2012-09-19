@@ -17,6 +17,13 @@
 @synthesize billAmount,rate,calculate,slider;
 int const Zero = 0;
 float Percentage_divisor= 1/100;
+NSString *negativeMessage = @"VALUES are NEGATIVE";
+NSString *outOfBoundMessage = @"RATE CANT BE GREATER THAN 100";
+NSString *fieldEmptyMessage = @"VALUES NOT ENTERED";
+NSString *alertButton = @"Alert";
+NSString *segueIdentifier = @"Result";
+NSString *okayButton = @"Okay";
+
 
 - (void)viewDidLoad
 {
@@ -25,41 +32,40 @@ float Percentage_divisor= 1/100;
 
 -(IBAction)calculateTip:(id)sender{
     if ((![billAmount.text length]) || (![rate.text length]) ) 
-    {   [self fieldEmptyAlert];  
-    }else if(([billAmount.text floatValue])<Zero || ([rate.text floatValue]<Zero) ) 
-    {
+       [self fieldEmptyAlert];  
+    else if(([billAmount.text floatValue])<Zero || ([rate.text floatValue]<Zero) ) 
         [self negativeAlert]; 
-        
-    }
     else if([rate.text floatValue]>100)
-    {
-        [self rateOutOfBoundsAlert];
-    }
-
+            [self rateOutOfBoundsAlert];
     else{
-    _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
+    [self tipValue];
+    [self performSegueWithIdentifier:segueIdentifier sender:self];
     }
 }
 - (IBAction) rateTextValueChanged:(UITextField *)sender {  
     [slider setValue:[rate.text floatValue] animated:YES];
 }
-
+-(float)tipValue
+{
+    _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
+    return _tip;
+}
 -(void)rateOutOfBoundsAlert
 {
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"RATE CANT BE GREATER THAN 100" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:alertButton message:outOfBoundMessage delegate:nil cancelButtonTitle:okayButton otherButtonTitles: nil];    
     [myAlert show];  
 }
 
 
 -(void)negativeAlert
 {
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:alertButton message:negativeMessage delegate:nil cancelButtonTitle:okayButton otherButtonTitles: nil];    
     [myAlert show];  
 }
 
 -(void)fieldEmptyAlert
 {
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:alertButton message:fieldEmptyMessage delegate:nil cancelButtonTitle:okayButton otherButtonTitles: nil];    
     [myAlert show];
 }
 
@@ -92,7 +98,7 @@ float Percentage_divisor= 1/100;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"Result"])
+    if ([[segue identifier] isEqualToString:segueIdentifier])
     {
         TipDetailViewController *detailViewController = 
         segue.destinationViewController;

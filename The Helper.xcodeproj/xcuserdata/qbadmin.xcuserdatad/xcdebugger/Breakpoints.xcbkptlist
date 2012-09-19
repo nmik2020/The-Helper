@@ -8,11 +8,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/LoanCalculator.m"
-         timestampString = "369662194.220997"
+         timestampString = "369720236.258788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
+         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/LoanCalculator.m"
+         timestampString = "369720236.258788"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "136"
+         endingLineNumber = "136"
          landmarkName = "@implementation LoanCalculator"
          landmarkType = "3">
       </FileBreakpoint>
@@ -21,24 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/LoanCalculator.m"
-         timestampString = "369662194.220997"
+         timestampString = "369720236.258788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "134"
-         endingLineNumber = "134"
-         landmarkName = "-prepareForSegue:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "The Helper/LoanCalculator.m"
-         timestampString = "369662194.220997"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "141"
-         endingLineNumber = "141"
+         startingLineNumber = "142"
+         endingLineNumber = "142"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/LoanCalculator.m"
-         timestampString = "369662194.220997"
+         timestampString = "369720236.258788"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "369663572.122938"
+         timestampString = "369721903.446657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "89"
+         endingLineNumber = "89"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "369663572.122938"
+         timestampString = "369721903.446657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "369663572.122938"
+         timestampString = "369721903.446657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "@implementation TipCalculator"
          landmarkType = "3">
       </FileBreakpoint>
@@ -151,33 +151,35 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "369663572.122938"
+         timestampString = "369721903.446657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "104"
-         endingLineNumber = "104">
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "@implementation TipCalculator"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "369663572.122938"
+         timestampString = "369721903.446657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105">
+         startingLineNumber = "111"
+         endingLineNumber = "111">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "369663572.122938"
+         timestampString = "369721903.446657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -191,6 +193,19 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "9"
          endingLineNumber = "9">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/LoanCalculator.m"
+         timestampString = "369720236.258788"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "61"
+         endingLineNumber = "61"
+         landmarkName = "-calculateLoan:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>

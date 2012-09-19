@@ -7,14 +7,14 @@
 //  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
-#import "LoanCalculator.h"
-#import "LoanDetailViewController.h"
+#import "EmiCalculator.h"
+#import "EmiDetailViewController.h"
 
-@interface LoanCalculator ()
+@interface EmiCalculator ()
 
 @end
 
-@implementation LoanCalculator
+@implementation EmiCalculator
 @synthesize rate,loanterm,principalAmount,showLabel,calculate,slider;
 @synthesize emi = _emi;
 @synthesize interest = _interest;
@@ -26,18 +26,23 @@ int const numberOfMonths = 12;
 int const one = 1;
 int const percent_divisor = 1/100;
 int const hundred = 100;
+
+NSString *emiNegativeMessage = @"VALUES are NEGATIVE";
+NSString *emiOutOfBoundMessage = @"RATE CANT BE GREATER THAN 100";
+NSString *emiFieldEmptyMessage = @"VALUES NOT ENTERED";
+NSString *emiAlertButton = @"Alert";
+NSString *emiSegueIdentifier = @"Result";
+NSString *emiOkayButton = @"Okay";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
-//When slider is moved, the corresponding change is seen in the text field
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
 	int progressAsInt =(int)(rateslider.value + 0.5f);
 	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
 	rate.text = newText; 
 }  
-//When text value is changed, the corresponding change is seen in the slider
 - (IBAction) rateTextValueChanged:(UITextField *)sender {  
         [slider setValue:[rate.text floatValue] animated:YES];
      }
@@ -58,26 +63,28 @@ int const hundred = 100;
     }
     else
     {
-    
+       
     [self calculateEmi];
     [self calculateInterest];
     [self calculateTotalAmount];
+    [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
+
     }
 }
 -(void)rateOutOfBoundsAlert
 {
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"RATE CANT BE GREATER THAN 100" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiOutOfBoundMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    
     [myAlert show];  
 }
 
 -(void)negativeAlert
 {
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES are NEGATIVE" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiNegativeMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    
     [myAlert show];  
 }
 -(void)fieldEmptyAlert
 {
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:@"Alert"message:@"VALUES NOT ENTERED" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];    
+    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiFieldEmptyMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    
     [myAlert show];
 }
 - (float)calculateEmi
@@ -133,10 +140,9 @@ int const hundred = 100;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"Result"])
+{       if ([[segue identifier] isEqualToString:emiSegueIdentifier])
     {
-        LoanDetailViewController *detailViewController = 
+        EmiDetailViewController *detailViewController = 
         segue.destinationViewController;
         detailViewController.emi = _emi;
         detailViewController.interest = _interest;
@@ -144,6 +150,8 @@ int const hundred = 100;
 
      
     }
+   
+
 }   
 
 

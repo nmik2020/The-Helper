@@ -27,5 +27,6 @@
 - (IBAction)calculateTip:(id)sender; 
 -(void)negativeAlert;
 -(void)fieldEmptyAlert;
+-(float)tipValue;
 
 @end

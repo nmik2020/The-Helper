@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoanCalculator : UIViewController{
+@interface EmiCalculator : UIViewController{
 UITextField *principalAmount;
     UITextField *rate;
     UITextField *loanTerm;

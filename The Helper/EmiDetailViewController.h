@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoanDetailViewController : UIViewController       
+@interface EmiDetailViewController : UIViewController       
 @property (nonatomic, strong) IBOutlet UILabel *monthlypayment;
 @property (nonatomic, strong) IBOutlet UILabel *simpleinterest;
 @property (nonatomic, strong) IBOutlet UILabel *totalpayment;

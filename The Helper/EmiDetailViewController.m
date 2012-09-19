@@ -8,9 +8,9 @@
 //  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
-#import "LoanDetailViewController.h"
+#import "EmiDetailViewController.h"
 
-@implementation LoanDetailViewController
+@implementation EmiDetailViewController
 @synthesize monthlypayment,simpleinterest,totalpayment;
 @synthesize emi;
 @synthesize interest;

@@ -14,7 +14,7 @@
 		2282835A15FF085E00AF9416 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282835915FF085E00AF9416 /* main.m */; };
 		2282835E15FF085E00AF9416 /* PrincipalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282835D15FF085E00AF9416 /* PrincipalAppDelegate.m */; };
 		2282836115FF085E00AF9416 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282835F15FF085E00AF9416 /* MainStoryboard.storyboard */; };
-		2282836415FF085E00AF9416 /* LoanCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282836315FF085E00AF9416 /* LoanCalculator.m */; };
+		2282836415FF085E00AF9416 /* EmiCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282836315FF085E00AF9416 /* EmiCalculator.m */; };
 		2282836615FF085E00AF9416 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 2282836515FF085E00AF9416 /* first.png */; };
 		2282836815FF085E00AF9416 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2282836715FF085E00AF9416 /* first@2x.png */; };
 		2282836B15FF085E00AF9416 /* TipCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282836A15FF085E00AF9416 /* TipCalculator.m */; };
@@ -25,7 +25,7 @@
 		2282837915FF085E00AF9416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2282834F15FF085E00AF9416 /* Foundation.framework */; };
 		2282838115FF085E00AF9416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2282837F15FF085E00AF9416 /* InfoPlist.strings */; };
 		2282838415FF085E00AF9416 /* The_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282838315FF085E00AF9416 /* The_HelperTests.m */; };
-		2282839315FF1D4D00AF9416 /* LoanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282839215FF1D4D00AF9416 /* LoanDetailViewController.m */; };
+		2282839315FF1D4D00AF9416 /* EmiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */; };
 		22C87AAF160063FE003A1AD5 /* TipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +51,8 @@
 		2282835C15FF085E00AF9416 /* PrincipalAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrincipalAppDelegate.h; sourceTree = "<group>"; };
 		2282835D15FF085E00AF9416 /* PrincipalAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrincipalAppDelegate.m; sourceTree = "<group>"; };
 		2282836015FF085E00AF9416 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		2282836215FF085E00AF9416 /* LoanCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoanCalculator.h; sourceTree = "<group>"; };
-		2282836315FF085E00AF9416 /* LoanCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanCalculator.m; sourceTree = "<group>"; };
+		2282836215FF085E00AF9416 /* EmiCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmiCalculator.h; sourceTree = "<group>"; };
+		2282836315FF085E00AF9416 /* EmiCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmiCalculator.m; sourceTree = "<group>"; };
 		2282836515FF085E00AF9416 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		2282836715FF085E00AF9416 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		2282836915FF085E00AF9416 /* TipCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TipCalculator.h; sourceTree = "<group>"; };
@@ -65,8 +65,8 @@
 		2282838015FF085E00AF9416 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2282838215FF085E00AF9416 /* The_HelperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = The_HelperTests.h; sourceTree = "<group>"; };
 		2282838315FF085E00AF9416 /* The_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_HelperTests.m; sourceTree = "<group>"; };
-		2282839115FF1D4D00AF9416 /* LoanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanDetailViewController.h; sourceTree = "<group>"; };
-		2282839215FF1D4D00AF9416 /* LoanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanDetailViewController.m; sourceTree = "<group>"; };
+		2282839115FF1D4D00AF9416 /* EmiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmiDetailViewController.h; sourceTree = "<group>"; };
+		2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmiDetailViewController.m; sourceTree = "<group>"; };
 		22C87AAD160063FE003A1AD5 /* TipDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipDetailViewController.h; sourceTree = "<group>"; };
 		22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,13 +128,13 @@
 		2282835315FF085E00AF9416 /* The Helper */ = {
 			isa = PBXGroup;
 			children = (
-				2282839115FF1D4D00AF9416 /* LoanDetailViewController.h */,
-				2282839215FF1D4D00AF9416 /* LoanDetailViewController.m */,
+				2282839115FF1D4D00AF9416 /* EmiDetailViewController.h */,
+				2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */,
 				2282835C15FF085E00AF9416 /* PrincipalAppDelegate.h */,
 				2282835D15FF085E00AF9416 /* PrincipalAppDelegate.m */,
 				2282835F15FF085E00AF9416 /* MainStoryboard.storyboard */,
-				2282836215FF085E00AF9416 /* LoanCalculator.h */,
-				2282836315FF085E00AF9416 /* LoanCalculator.m */,
+				2282836215FF085E00AF9416 /* EmiCalculator.h */,
+				2282836315FF085E00AF9416 /* EmiCalculator.m */,
 				2282836515FF085E00AF9416 /* first.png */,
 				2282836715FF085E00AF9416 /* first@2x.png */,
 				2282836915FF085E00AF9416 /* TipCalculator.h */,
@@ -291,9 +291,9 @@
 			files = (
 				2282835A15FF085E00AF9416 /* main.m in Sources */,
 				2282835E15FF085E00AF9416 /* PrincipalAppDelegate.m in Sources */,
-				2282836415FF085E00AF9416 /* LoanCalculator.m in Sources */,
+				2282836415FF085E00AF9416 /* EmiCalculator.m in Sources */,
 				2282836B15FF085E00AF9416 /* TipCalculator.m in Sources */,
-				2282839315FF1D4D00AF9416 /* LoanDetailViewController.m in Sources */,
+				2282839315FF1D4D00AF9416 /* EmiDetailViewController.m in Sources */,
 				22C87AAF160063FE003A1AD5 /* TipDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

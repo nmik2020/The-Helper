@@ -6,11 +6,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
-        <!--Loan Calculator - First-->
+        <!--Emi Calculator - First-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
-                <viewController title="First" id="2" customClass="LoanCalculator" sceneMemberID="viewController">
+                <viewController title="First" id="2" customClass="EmiCalculator" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,6 @@
                                 </state>
                                 <connections>
                                     <action selector="calculateLoan:" destination="2" eventType="touchUpInside" id="gou-uE-Ggy"/>
-                                    <segue destination="6jm-nX-CDF" kind="push" identifier="Result" id="uJV-lK-o4x"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loan Term" minimumFontSize="17" clearButtonMode="whileEditing" id="BvW-L8-Dky">
@@ -73,16 +72,17 @@
                         <outlet property="principalAmount" destination="xNm-gy-0LK" id="pm5-YU-ep5"/>
                         <outlet property="rate" destination="ABw-pv-Eym" id="Foo-sg-IzC"/>
                         <outlet property="slider" destination="yDv-Ao-Udi" id="9OH-nB-NKO"/>
+                        <segue destination="6jm-nX-CDF" kind="push" identifier="Result" id="Kgm-8m-ixD"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="641" y="-154"/>
         </scene>
-        <!--Loan Detail View Controller-->
+        <!--Emi Detail View Controller-->
         <scene sceneID="xA1-Bd-wFZ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVK-vd-Dvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="6jm-nX-CDF" customClass="LoanDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Result" id="6jm-nX-CDF" customClass="EmiDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rv4-XR-IgX">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -211,7 +211,6 @@
                                 </state>
                                 <connections>
                                     <action selector="calculateTip:" destination="3" eventType="touchUpInside" id="Eyh-Or-a6A"/>
-                                    <segue destination="Y6R-CU-cIF" kind="push" identifier="Result" id="1Xo-HO-9GP"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" id="1wf-Dn-SmH">
@@ -230,6 +229,7 @@
                         <outlet property="billAmount" destination="ox7-8m-uCk" id="Qht-bm-dac"/>
                         <outlet property="rate" destination="bAN-8m-Fa5" id="Y33-Rm-ZR4"/>
                         <outlet property="slider" destination="1wf-Dn-SmH" id="XrB-Fp-pBd"/>
+                        <segue destination="Y6R-CU-cIF" kind="push" identifier="Result" id="WtH-Pu-ZzS"/>
                     </connections>
                 </viewController>
             </objects>
@@ -294,49 +294,6 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="LoanCalculator" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoanCalculator.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTouchedHideKeyboard:"/>
-                <relationship kind="action" name="calculateLoan:"/>
-                <relationship kind="action" name="rateTextValueChanged:" candidateClass="UITextField"/>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loanterm" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="principalAmount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="showLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="LoanDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoanDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="monthlypayment" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="simpleinterest" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalpayment" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TipCalculator" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipCalculator.h"/>
-            <relationships>
-                <relationship kind="action" name="calculateTip:"/>
-                <relationship kind="action" name="rateTextValueChanged:" candidateClass="UITextField"/>
-                <relationship kind="action" name="sliderValueChanged:"/>
-                <relationship kind="outlet" name="billAmount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="TipDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tipamount" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
