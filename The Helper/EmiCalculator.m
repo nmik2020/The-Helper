@@ -11,7 +11,7 @@
 @end
 
 @implementation EmiCalculator
-@synthesize rate,loanterm,principalAmount,showLabel,calculate,slider;
+@synthesize rate,loanterm,principalAmount,showLabel,calculate,slider,monthsToYears;
 @synthesize emi = _emi;
 @synthesize interest = _interest;
 @synthesize totalAmount = _totalAmount;
@@ -69,6 +69,7 @@ NSString *emiOkayButton = @"Okay";
 
     }
 }
+
 -(void)rateOutOfBoundsAlert
 {
     UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiOutOfBoundMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    

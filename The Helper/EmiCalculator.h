@@ -17,6 +17,7 @@ UITextField *principalAmount;
 @property (nonatomic, strong) IBOutlet UIButton *calculate;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
 
+
 @property float emi;
 @property float interest;
 @property float totalAmount;
@@ -26,6 +27,5 @@ UITextField *principalAmount;
 - (float)calculateEmi; 
 - (float)calculateInterest; 
 - (float)calculateTotalAmount;
-
 - (IBAction)backgroundTouchedHideKeyboard:(id)sender ;
 @end
