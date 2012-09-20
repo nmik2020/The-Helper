@@ -300,6 +300,49 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="EmiCalculator" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmiCalculator.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTouchedHideKeyboard:"/>
+                <relationship kind="action" name="calculateEmi:"/>
+                <relationship kind="action" name="rateTextValueChanged:" candidateClass="UITextField"/>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loanterm" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="principalAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="showLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="EmiDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmiDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="monthlypayment" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="simpleinterest" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalpayment" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TipCalculator" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipCalculator.h"/>
+            <relationships>
+                <relationship kind="action" name="calculateTip:"/>
+                <relationship kind="action" name="rateTextValueChanged:" candidateClass="UITextField"/>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="outlet" name="billAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="TipDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tipamount" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
