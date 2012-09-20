@@ -128,13 +128,13 @@
 		2282835315FF085E00AF9416 /* The Helper */ = {
 			isa = PBXGroup;
 			children = (
-				2282839115FF1D4D00AF9416 /* EmiDetailViewController.h */,
-				2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */,
 				2282835C15FF085E00AF9416 /* PrincipalAppDelegate.h */,
 				2282835D15FF085E00AF9416 /* PrincipalAppDelegate.m */,
 				2282835F15FF085E00AF9416 /* MainStoryboard.storyboard */,
 				2282836215FF085E00AF9416 /* EmiCalculator.h */,
 				2282836315FF085E00AF9416 /* EmiCalculator.m */,
+				2282839115FF1D4D00AF9416 /* EmiDetailViewController.h */,
+				2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */,
 				2282836515FF085E00AF9416 /* first.png */,
 				2282836715FF085E00AF9416 /* first@2x.png */,
 				2282836915FF085E00AF9416 /* TipCalculator.h */,
@@ -395,7 +395,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Helper/The Helper-Prefix.pch";
 				INFOPLIST_FILE = "The Helper/The Helper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -406,7 +408,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Helper/The Helper-Prefix.pch";
 				INFOPLIST_FILE = "The Helper/The Helper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

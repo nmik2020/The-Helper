@@ -1,7 +1,5 @@
 //
-//  PrincipalSecondViewController.m
-//  The Helper
-//
+
 //
 //  Created by Nidal on 9/12/12.
 //  Copyright (c) 2012 __ABC Corp__. All rights reserved.
@@ -15,8 +13,7 @@
 @implementation TipCalculator
 @synthesize tip= _tip;
 @synthesize billAmount,rate,calculate,slider;
-int const Zero = 0;
-float Percentage_divisor= 1/100;
+int const Zero = 0;//used to check if length of text field's are empty or not 
 NSString *negativeMessage = @"VALUES are NEGATIVE";
 NSString *outOfBoundMessage = @"RATE CANT BE GREATER THAN 100";
 NSString *fieldEmptyMessage = @"VALUES NOT ENTERED";
@@ -26,7 +23,7 @@ NSString *okayButton = @"Okay";
 
 
 - (void)viewDidLoad
-{
+{   rate.keyboardType = UIKeyboardTypeDecimalPad;
     [super viewDidLoad];
 }
 
@@ -35,7 +32,7 @@ NSString *okayButton = @"Okay";
        [self fieldEmptyAlert];  
     else if(([billAmount.text floatValue])<Zero || ([rate.text floatValue]<Zero) ) 
         [self negativeAlert]; 
-    else if([rate.text floatValue]>100)
+    else if([rate.text floatValue]>100) //to generate alert if rate goes beyond 100
             [self rateOutOfBoundsAlert];
     else{
     [self tipValue];
@@ -77,8 +74,8 @@ NSString *okayButton = @"Okay";
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
-	int progressAsInt =(int)(rateslider.value + 0.5f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
+	float progressAsInt =(float)(rateslider.value + 0.0f);
+	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
 	rate.text = newText; 
 } 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

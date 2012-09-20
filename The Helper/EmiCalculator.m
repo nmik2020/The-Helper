@@ -1,8 +1,4 @@
-//
-//  PrincipalFirstViewController.m
-//  The Helper
-//
-//
+
 //  Created by Nidal on 9/12/12.
 //  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
@@ -24,7 +20,6 @@ float monthlyrate;
 float ratevalue;
 int const numberOfMonths = 12;
 int const one = 1;
-int const percent_divisor = 1/100;
 int const hundred = 100;
 
 NSString *emiNegativeMessage = @"VALUES are NEGATIVE";
@@ -34,26 +29,29 @@ NSString *emiAlertButton = @"Alert";
 NSString *emiSegueIdentifier = @"Result";
 NSString *emiOkayButton = @"Okay";
 - (void)viewDidLoad
-{
+{   rate.keyboardType = UIKeyboardTypeDecimalPad;
     [super viewDidLoad];
+     
+
+   
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
-	int progressAsInt =(int)(rateslider.value + 0.5f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%d",progressAsInt];
+	float progressAsInt =(float)(rateslider.value + 0.0f);
+	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
 	rate.text = newText; 
 }  
 - (IBAction) rateTextValueChanged:(UITextField *)sender {  
         [slider setValue:[rate.text floatValue] animated:YES];
      }
 
-- (IBAction)calculateLoan:(id)sender
+- (IBAction)calculateEmi:(id)sender
 {
     if ((![loanterm.text length]) || (![rate.text length]) ||(![principalAmount.text length])) 
     {        
     [self fieldEmptyAlert];
     }
-    else if(([loanTerm.text floatValue])<0 || ([rate.text floatValue]<0) || [principalAmount.text floatValue]<0) 
+    else if(([loanterm.text floatValue])<0 || ([rate.text floatValue]<0) || [principalAmount.text floatValue]<0) 
     {
     [self negativeAlert];
     }
@@ -89,10 +87,7 @@ NSString *emiOkayButton = @"Okay";
 }
 - (float)calculateEmi
 {   ratevalue = [rate.text floatValue];
-    if (ratevalue<0) {
-        ratevalue =0;
-    }
-    monthlyrate = (ratevalue/numberOfMonths/100); //Converting the annual rate into monthly rate
+    monthlyrate = (ratevalue/numberOfMonths/hundred); //Converting the annual rate into monthly rate
    _emi = [principalAmount.text floatValue]*monthlyrate*pow((one+monthlyrate), [loanterm.text floatValue])/(pow((one+monthlyrate), [loanterm.text floatValue])-one);
     //the mathematical formula to obtain the emi
     return _emi;
@@ -121,7 +116,6 @@ NSString *emiOkayButton = @"Okay";
     self.rate = nil;
     self.loanterm = nil;
     self.slider = nil;
-  
 }
 
 

@@ -1,8 +1,3 @@
-//
-//  PrincipalFirstViewController.h
-//  The Helper
-//
-//
 //  Created by Nidal on 9/12/12.
 //  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
@@ -11,8 +6,7 @@
 
 @interface EmiCalculator : UIViewController{
 UITextField *principalAmount;
-    UITextField *rate;
-    UITextField *loanTerm;
+    //UITextField *rate;
     UIButton *calculate;
     UISlider *slider;
     }
@@ -28,7 +22,7 @@ UITextField *principalAmount;
 @property float totalAmount;
 - (IBAction) sliderValueChanged:(id)sender;  
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
-- (IBAction)calculateLoan:(id)sender; 
+- (IBAction)calculateEmi:(id)sender; 
 - (float)calculateEmi; 
 - (float)calculateInterest; 
 - (float)calculateTotalAmount;

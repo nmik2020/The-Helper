@@ -11,12 +11,12 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController title="First" id="2" customClass="EmiCalculator" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="16" customClass="UIControl">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="16" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Principal Amount" minimumFontSize="17" clearButtonMode="whileEditing" id="xNm-gy-0LK">
-                                <rect key="frame" x="15" y="28" width="251" height="31"/>
+                                <rect key="frame" x="15" y="29" width="143" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -31,9 +31,10 @@
                                     <action selector="sliderValueChanged:" destination="2" eventType="valueChanged" id="dUQ-dc-fJJ"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GJH-xF-OCe">
-                                <rect key="frame" x="76" y="277" width="168" height="37"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GJH-xF-OCe">
+                                <rect key="frame" x="114" y="277" width="93" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Calculate">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,11 +44,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="calculateLoan:" destination="2" eventType="touchUpInside" id="gou-uE-Ggy"/>
+                                    <action selector="calculateEmi:" destination="2" eventType="touchUpInside" id="ICw-7u-Vhl"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loan Term" minimumFontSize="17" clearButtonMode="whileEditing" id="BvW-L8-Dky">
-                                <rect key="frame" x="35" y="195" width="204" height="31"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Loan Term(Months)" minimumFontSize="17" clearButtonMode="whileEditing" id="BvW-L8-Dky">
+                                <rect key="frame" x="15" y="152" width="143" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -60,13 +61,16 @@
                                 </connections>
                             </slider>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES" image="YES"/>
+                        </accessibility>
                         <connections>
                             <action selector="backgroundTouchedHideKeyboard:" destination="2" eventType="touchDown" id="0UZ-Oo-enj"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="EMI" image="first" id="7"/>
-                    <navigationItem key="navigationItem" id="c0s-yi-ZT8"/>
+                    <navigationItem key="navigationItem" id="c0s-yi-ZT8" colorLabel="IBBuiltInLabel-Red"/>
                     <connections>
                         <outlet property="loanterm" destination="BvW-L8-Dky" id="fZR-oh-bCa"/>
                         <outlet property="principalAmount" destination="xNm-gy-0LK" id="pm5-YU-ep5"/>
@@ -130,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="lpq-M3-WEz"/>
                     <connections>
@@ -184,13 +188,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Amount" minimumFontSize="17" clearButtonMode="whileEditing" id="ox7-8m-uCk">
-                                <rect key="frame" x="27" y="34" width="97" height="31"/>
+                                <rect key="frame" x="27" y="34" width="89" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rate" minimumFontSize="17" clearButtonMode="whileEditing" id="bAN-8m-Fa5">
-                                <rect key="frame" x="27" y="114" width="97" height="31"/>
+                                <rect key="frame" x="27" y="114" width="61" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -199,7 +203,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d1L-ch-frO">
-                                <rect key="frame" x="87" y="204" width="92" height="37"/>
+                                <rect key="frame" x="120" y="277" width="81" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Calculate">
@@ -221,7 +225,7 @@
                                 </connections>
                             </slider>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="TIP" image="second" id="6"/>
                     <navigationItem key="navigationItem" id="PGh-1I-dnv"/>
@@ -259,7 +263,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="RCg-Ib-Vpf"/>
                     <connections>
@@ -294,6 +298,49 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="EmiCalculator" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmiCalculator.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTouchedHideKeyboard:"/>
+                <relationship kind="action" name="calculateEmi:"/>
+                <relationship kind="action" name="rateTextValueChanged:" candidateClass="UITextField"/>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loanterm" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="principalAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="showLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="EmiDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmiDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="monthlypayment" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="simpleinterest" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalpayment" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TipCalculator" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipCalculator.h"/>
+            <relationships>
+                <relationship kind="action" name="calculateTip:"/>
+                <relationship kind="action" name="rateTextValueChanged:" candidateClass="UITextField"/>
+                <relationship kind="action" name="sliderValueChanged:"/>
+                <relationship kind="outlet" name="billAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="calculate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="TipDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TipDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tipamount" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
