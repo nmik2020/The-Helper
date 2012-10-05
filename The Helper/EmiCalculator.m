@@ -39,7 +39,7 @@ coreCalculations *Calculator;
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
 	float progressAsInt =(float)(rateslider.value + 0.0f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%0.05f",progressAsInt];
+	NSString *newText =[[NSString alloc] initWithFormat:@"%0.05f",progress];
 	rate.text = newText;
     if([rate.text doubleValue]>0)
     { rate.backgroundColor = [UIColor whiteColor];
