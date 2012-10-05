@@ -3,34 +3,35 @@
 //  Copyright (c) 2012 __ABC Corp__. All rights reserved.
 //
 
-#import "EmiCalculator.h"
 #import "EmiDetailViewController.h"
-
+#import "coreCalculations.h"
+#import "Exceptions.h"
+#import "Constants.h"
 @interface EmiCalculator ()
 
 @end
 
 @implementation EmiCalculator
-@synthesize rate,loanterm,principalAmount,showLabel,calculate,slider,monthsToYears;
+@synthesize rate,loanterm,principalAmount,showLabel,calculate,slider,principalAmountErrorLabel,rateErrorLabel,loantermErrorLabel,canCalculate;
 @synthesize emi = _emi;
 @synthesize interest = _interest;
 @synthesize totalAmount = _totalAmount;
 
-float monthlyrate;
-float ratevalue;
-int const numberOfMonths = 12;
-int const one = 1;
-int const hundred = 100;
+double monthlyrate;
+double ratevalue;
+double amount;
+double period;
+Exceptions *alert;
 
-NSString *emiNegativeMessage = @"VALUES are NEGATIVE";
-NSString *emiOutOfBoundMessage = @"RATE CANT BE GREATER THAN 100";
-NSString *emiFieldEmptyMessage = @"VALUES NOT ENTERED";
-NSString *emiAlertButton = @"Alert";
-NSString *emiSegueIdentifier = @"Result";
-NSString *emiOkayButton = @"Okay";
+coreCalculations *Calculator;
 - (void)viewDidLoad
-{   rate.keyboardType = UIKeyboardTypeDecimalPad;
-    [super viewDidLoad];
+{       // self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bag_of_money.png"]];
+    principalAmount.delegate = self;
+    rate.delegate = self;
+    loanterm.delegate = self;
+    principalAmount.keyboardType = UIKeyboardTypeDecimalPad;
+    rate.keyboardType = UIKeyboardTypeDecimalPad;
+        [super viewDidLoad];
      
 
    
@@ -38,69 +39,104 @@ NSString *emiOkayButton = @"Okay";
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
 	float progressAsInt =(float)(rateslider.value + 0.0f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
-	rate.text = newText; 
-}  
-- (IBAction) rateTextValueChanged:(UITextField *)sender {  
-        [slider setValue:[rate.text floatValue] animated:YES];
+	NSString *newText =[[NSString alloc] initWithFormat:@"%0.05f",progressAsInt];
+	rate.text = newText;
+    if([rate.text doubleValue]>0)
+    { rate.backgroundColor = [UIColor whiteColor];
+        rateErrorLabel.text = @"";
+    }
+}
+- (IBAction) rateTextValueChanged:(UITextField *)sender {
+        [slider setValue:[rate.text doubleValue] animated:YES];
      }
 
 - (IBAction)calculateEmi:(id)sender
-{
-    if ((![loanterm.text length]) || (![rate.text length]) ||(![principalAmount.text length])) 
-    {        
-    [self fieldEmptyAlert];
+{   NSError *error = NULL;
+    loantermErrorLabel.text = @"";
+    principalAmountErrorLabel.text = @"";
+    rateErrorLabel.text = @"";
+    canCalculate=TRUE;
+
+    if (!alert) {
+        alert = [[Exceptions alloc]init];
     }
-    else if(([loanterm.text floatValue])<0 || ([rate.text floatValue]<0) || [principalAmount.text floatValue]<0) 
+    NSRegularExpression *regexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionSearch error:&error];
+    NSUInteger principalAmountCount = [regexString  numberOfMatchesInString:principalAmount.text
+                                                     options:0 range:NSMakeRange(0, [principalAmount.text length])];
+    NSUInteger rateCount = [regexString  numberOfMatchesInString:rate.text
+                                                                    options:0 range:NSMakeRange(0, [rate.text length])];
+    NSUInteger loantermCount = [regexString  numberOfMatchesInString:loanterm.text
+                                                                    options:0 range:NSMakeRange(0, [loanterm.text length])];
+   
+        
+    
+    [principalAmount resignFirstResponder];
+    [rate resignFirstResponder];
+    [loanterm resignFirstResponder];
+    [calculate resignFirstResponder];
+    
+    Calculator = [[coreCalculations alloc]init];
+    ratevalue = [rate.text doubleValue];
+    amount = [principalAmount.text doubleValue];
+    period =[loanterm.text doubleValue];
+    
+    if(principalAmountCount!=[principalAmount.text length] || rateCount!=[rate.text length] || loantermCount!=[loanterm.text length])
     {
-    [self negativeAlert];
+        
+        if(principalAmountCount!=[principalAmount.text length])
+        [alert principalAmountInvalidTypeAlert:self withCount:principalAmountCount];
+             
+       if(rateCount!=[rate.text length])
+            [alert rateInvalidTypeAlert:self withCount:rateCount];
+        if(loantermCount!=[loanterm.text length])
+            [alert loantermInvalidTypeAlert:self withCount:loantermCount];
+        
+        canCalculate = FALSE;
     }
-    else if([rate.text floatValue]>hundred)
+    if ((![loanterm.text length]) ||(![rate.text length]) || ![principalAmount.text length] )    {
+        if(![principalAmount.text length])
+            [alert principalAmountFieldEmptyAlert:self];
+         if(![rate.text length])
+             [alert rateFieldEmptyAlert:self];
+        if(![loanterm.text length])
+            [alert loantermFieldEmptyAlert:self];
+        canCalculate=FALSE;
+
+   }
+    
+    if(([loanterm.text doubleValue])<0 || ([rate.text doubleValue]<0) || [principalAmount.text doubleValue]<0)
     {
-        [self rateOutOfBoundsAlert];
+        [alert negativeAlert:self];
+        canCalculate=FALSE;
     }
-    else
+    if([rate.text doubleValue]>100)
     {
-       
-    [self calculateEmi];
-    [self calculateInterest];
-    [self calculateTotalAmount];
+       [alert rateOutOfBoundsAlert:self];
+        canCalculate=FALSE;
+        
+    }
+    if(canCalculate)
+    {   
+        _emi = [Calculator calculateEmi:ratevalue perMonth:amount ofLoan:period];
+        _interest= [Calculator calculateInterest:_emi of:period Loan:amount];
+        _totalAmount=[Calculator calculateTotalAmount:amount paid:_interest];
     [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
 
     }
 }
 
--(void)rateOutOfBoundsAlert
-{
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiOutOfBoundMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    
-    [myAlert show];  
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{textField.backgroundColor = [UIColor whiteColor];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.25];
+    self.view.frame = CGRectMake(0,-20,320,400);
+    [UIView commitAnimations];
+    
 }
 
--(void)negativeAlert
-{
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiNegativeMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    
-    [myAlert show];  
-}
--(void)fieldEmptyAlert
-{
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:emiAlertButton message:emiFieldEmptyMessage delegate:nil cancelButtonTitle:emiOkayButton otherButtonTitles: nil];    
-    [myAlert show];
-}
-- (float)calculateEmi
-{   ratevalue = [rate.text floatValue];
-    monthlyrate = (ratevalue/numberOfMonths/hundred); //Converting the annual rate into monthly rate
-   _emi = [principalAmount.text floatValue]*monthlyrate*pow((one+monthlyrate), [loanterm.text floatValue])/(pow((one+monthlyrate), [loanterm.text floatValue])-one);
-    //the mathematical formula to obtain the emi
-    return _emi;
-}
-- (float)calculateInterest{
-    _interest = ((_emi*[loanterm.text floatValue]) - [principalAmount.text floatValue]);
-    return _interest;
-}
-- (float)calculateTotalAmount{
-    _totalAmount = [principalAmount.text floatValue] + _interest;
-    return _totalAmount;
-}
+
 
 - (IBAction)backgroundTouchedHideKeyboard:(id)sender  
 {  
@@ -120,18 +156,12 @@ NSString *emiOkayButton = @"Okay";
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated 
-{
-    principalAmount.text = nil;
-    rate.text = nil;
-    loanterm.text = nil;
-    slider.value = 0;
-    
-}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

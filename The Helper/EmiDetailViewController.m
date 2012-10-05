@@ -15,6 +15,7 @@
 {
     
     [super viewDidLoad];
+    //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bag_of_money.png"]];
     NSString *payment = [NSString stringWithFormat:@"%0.02f", self.emi];
     NSString *simpleInterest = [NSString stringWithFormat:@"%0.02f", self.interest];
     NSString *total = [NSString stringWithFormat:@"%0.02f", self.totalamount];

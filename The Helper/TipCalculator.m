@@ -7,64 +7,99 @@
 
 #import "TipCalculator.h"
 #import "TipDetailViewController.h"
-
-
+#import "coreCalculations.h"
+#import "Constants.h"
+#import "Exceptions.h"
 
 @implementation TipCalculator
 @synthesize tip= _tip;
-@synthesize billAmount,rate,calculate,slider;
-int const Zero = 0;//used to check if length of text field's are empty or not 
-NSString *negativeMessage = @"VALUES are NEGATIVE";
-NSString *outOfBoundMessage = @"RATE CANT BE GREATER THAN 100";
-NSString *fieldEmptyMessage = @"VALUES NOT ENTERED";
-NSString *alertButton = @"Alert";
-NSString *segueIdentifier = @"Result";
-NSString *okayButton = @"Okay";
+@synthesize billAmount,rate,calculate,slider,tipCanBeCalculated,billAmountLabel,rateLabel;
 
-
+double tipRate;
+double totalBillValue;
+coreCalculations *calculator;
+Exceptions *tipAlert;
 - (void)viewDidLoad
-{   rate.keyboardType = UIKeyboardTypeDecimalPad;
+{
+
+    rate.keyboardType = UIKeyboardTypeDecimalPad;
     [super viewDidLoad];
 }
 
 -(IBAction)calculateTip:(id)sender{
-    if ((![billAmount.text length]) || (![rate.text length]) ) 
-       [self fieldEmptyAlert];  
-    else if(([billAmount.text floatValue])<Zero || ([rate.text floatValue]<Zero) ) 
-        [self negativeAlert]; 
-    else if([rate.text floatValue]>100) //to generate alert if rate goes beyond 100
-            [self rateOutOfBoundsAlert];
-    else{
-    [self tipValue];
+    calculator = [[coreCalculations alloc]init];
+    
+    NSError *error = NULL;
+    billAmountLabel.text = @"";
+    rateLabel.text = @"";
+    
+    tipCanBeCalculated=TRUE;
+    
+    if (!tipAlert) {
+        tipAlert = [[Exceptions alloc]init];
+    }
+    NSRegularExpression *tipRegexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionSearch error:&error];
+    NSUInteger billAmountCount = [tipRegexString  numberOfMatchesInString:billAmount.text
+                                                                    options:0 range:NSMakeRange(0, [billAmount.text length])];
+    NSUInteger tipRateCount = [tipRegexString  numberOfMatchesInString:rate.text
+                                                                  options:0 range:NSMakeRange(0, [rate.text length])];
+    
+    
+    
+    
+    [billAmount resignFirstResponder];
+    [rate resignFirstResponder];
+    [calculate resignFirstResponder];
+    
+    calculator = [[coreCalculations alloc]init];
+    tipRate = [rate.text doubleValue];
+    totalBillValue = [billAmount.text doubleValue];
+    
+    if(billAmountCount!=[billAmount.text length] || tipRateCount!=[rate.text length] )
+    {
+        
+        if(billAmountCount!=[billAmount.text length])
+            [tipAlert billAmountInvalidTypeAlert:self withCount:billAmountCount];
+        
+        if(tipRateCount!=[rate.text length])
+            [tipAlert tipRateInvalidTypeAlert:self withCount:billAmountCount];
+                
+        tipCanBeCalculated = FALSE;
+    }
+    if ((![billAmount.text length]) ||(![rate.text length]) )    {
+        if(![billAmount.text length])
+            [tipAlert tipFieldEmptyAlert:self];
+        if(![rate.text length])
+      [tipAlert tipFieldEmptyAlert:self];
+               tipCanBeCalculated=FALSE;
+        
+    }
+    
+    if(([billAmount.text doubleValue])<0 || ([rate.text doubleValue]<0) )
+    {
+        [tipAlert tipNegativeAlert:self];
+        tipCanBeCalculated=FALSE;
+    }
+    if([rate.text doubleValue]>100)
+    {
+        [tipAlert tipRateOutOfBoundsAlert:self];
+        tipCanBeCalculated=FALSE;
+        
+    }
+    if(tipCanBeCalculated)
+    {    
+        tipRate =  [rate.text floatValue];
+        totalBillValue = [billAmount.text floatValue];
+        _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
     [self performSegueWithIdentifier:segueIdentifier sender:self];
     }
+   
 }
 - (IBAction) rateTextValueChanged:(UITextField *)sender {  
     [slider setValue:[rate.text floatValue] animated:YES];
 }
--(float)tipValue
-{
-    _tip = [rate.text floatValue]/100*[billAmount.text floatValue];
-    return _tip;
-}
--(void)rateOutOfBoundsAlert
-{
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:alertButton message:outOfBoundMessage delegate:nil cancelButtonTitle:okayButton otherButtonTitles: nil];    
-    [myAlert show];  
-}
 
 
--(void)negativeAlert
-{
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:alertButton message:negativeMessage delegate:nil cancelButtonTitle:okayButton otherButtonTitles: nil];    
-    [myAlert show];  
-}
-
--(void)fieldEmptyAlert
-{
-    UIAlertView *myAlert = [[UIAlertView  alloc]initWithTitle:alertButton message:fieldEmptyMessage delegate:nil cancelButtonTitle:okayButton otherButtonTitles: nil];    
-    [myAlert show];
-}
 
 - (void)viewWillDisappear:(BOOL)animated 
 {
@@ -76,7 +111,12 @@ NSString *okayButton = @"Okay";
   	UISlider *rateslider = (UISlider *) sender;
 	float progressAsInt =(float)(rateslider.value + 0.0f);
 	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
-	rate.text = newText; 
+	rate.text = newText;
+    if([rate.text doubleValue]>0)
+    { rate.backgroundColor = [UIColor whiteColor];
+        rateLabel.text = @"";
+    }
+
 } 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [rate resignFirstResponder];

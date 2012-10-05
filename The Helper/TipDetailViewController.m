@@ -13,6 +13,7 @@
 {
     
     [super viewDidLoad];
+   //self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"personal_loan.png"]];
     NSString *myNewString = [NSString stringWithFormat:@"%0.02f", self.tip];
     self.tipamount.text = myNewString;
     

@@ -3,12 +3,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface EmiCalculator : UIViewController{
-UITextField *principalAmount;
-    //UITextField *rate;
-    UIButton *calculate;
-    UISlider *slider;
+   UITextField *principalAmount;
+   UIButton *calculate;
+   UISlider *slider;
+
     }
 @property (nonatomic,strong) IBOutlet UITextField *principalAmount;
 @property (nonatomic,strong) IBOutlet UITextField *rate;
@@ -16,16 +15,20 @@ UITextField *principalAmount;
 @property (nonatomic, strong) IBOutlet UILabel *showLabel;
 @property (nonatomic, strong) IBOutlet UIButton *calculate;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
+@property (nonatomic, strong) IBOutlet UILabel *principalAmountErrorLabel;
+@property (nonatomic, strong) IBOutlet UILabel *rateErrorLabel;
+@property (nonatomic, strong) IBOutlet UILabel *loantermErrorLabel;
+@property(nonatomic)        BOOL        canCalculate;
 
-
-@property float emi;
-@property float interest;
-@property float totalAmount;
+@property double emi;
+@property double interest;
+@property double totalAmount;
 - (IBAction) sliderValueChanged:(id)sender;  
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
 - (IBAction)calculateEmi:(id)sender; 
-- (float)calculateEmi; 
-- (float)calculateInterest; 
-- (float)calculateTotalAmount;
+- (double)calculateEmi;
+- (double)calculateInterest;
+- (double)calculateTotalAmount;
 - (IBAction)backgroundTouchedHideKeyboard:(id)sender ;
+
 @end

@@ -15,8 +15,11 @@
 @property (nonatomic,strong) IBOutlet UITextField *billAmount;
 @property (nonatomic,strong) IBOutlet UITextField *rate;
 @property (nonatomic, strong) IBOutlet UIButton *calculate;
-@property float tip;
+@property double tip;
 @property (nonatomic, strong) IBOutlet UISlider *slider;
+@property (nonatomic, strong) IBOutlet UILabel *billAmountLabel;
+@property (nonatomic, strong) IBOutlet UILabel *rateLabel;
+@property (nonatomic) BOOL tipCanBeCalculated;
 
 
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
@@ -24,6 +27,5 @@
 - (IBAction)calculateTip:(id)sender; 
 -(void)negativeAlert;
 -(void)fieldEmptyAlert;
--(float)tipValue;
 
 @end
