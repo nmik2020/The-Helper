@@ -25,7 +25,7 @@
 }
 - (void)viewWillDisappear:(BOOL)animated 
 {
-    self.tipamount.text = nil;
+   self.tipamount.text = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

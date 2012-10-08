@@ -39,7 +39,7 @@ coreCalculations *Calculator;
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
 	float progressAsInt =(float)(rateslider.value + 0.0f);
-	NSString *newText =[[NSString alloc] initWithFormat:@"%0.05f",progress];
+	NSString *newText =[[NSString alloc] initWithFormat:@"%0.02f",progressAsInt];
 	rate.text = newText;
     if([rate.text doubleValue]>0)
     { rate.backgroundColor = [UIColor whiteColor];
@@ -60,7 +60,7 @@ coreCalculations *Calculator;
     if (!alert) {
         alert = [[Exceptions alloc]init];
     }
-    NSRegularExpression *regexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionSearch error:&error];
+    NSRegularExpression *regexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9.]" options:NSRegularExpressionSearch error:&error];
     NSUInteger principalAmountCount = [regexString  numberOfMatchesInString:principalAmount.text
                                                      options:0 range:NSMakeRange(0, [principalAmount.text length])];
     NSUInteger rateCount = [regexString  numberOfMatchesInString:rate.text

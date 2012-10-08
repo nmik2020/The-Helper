@@ -38,7 +38,7 @@ Exceptions *tipAlert;
     if (!tipAlert) {
         tipAlert = [[Exceptions alloc]init];
     }
-    NSRegularExpression *tipRegexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionSearch error:&error];
+    NSRegularExpression *tipRegexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9.]" options:NSRegularExpressionSearch error:&error];
     NSUInteger billAmountCount = [tipRegexString  numberOfMatchesInString:billAmount.text
                                                                     options:0 range:NSMakeRange(0, [billAmount.text length])];
     NSUInteger tipRateCount = [tipRegexString  numberOfMatchesInString:rate.text
@@ -103,9 +103,9 @@ Exceptions *tipAlert;
 
 - (void)viewWillDisappear:(BOOL)animated 
 {
-    billAmount.text = nil;
-    rate.text = nil;
-    slider.value = 0;
+    //billAmount.text = nil;
+    //rate.text = nil;
+    //slider.value = 0;
 }
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
