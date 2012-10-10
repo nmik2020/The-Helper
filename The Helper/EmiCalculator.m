@@ -12,32 +12,26 @@
 @end
 
 @implementation EmiCalculator
-@synthesize rate,loanterm,principalAmount,showLabel,calculate,slider,principalAmountErrorLabel,rateErrorLabel,loantermErrorLabel,canCalculate,gotDecimal    ;
+@synthesize rate,loanterm,principalAmount,showLabel,calculate,slider,principalAmountErrorLabel,rateErrorLabel,loantermErrorLabel,canCalculate,gotDecimal;
 @synthesize emi = _emi;
 @synthesize interest = _interest;
 @synthesize totalAmount = _totalAmount;
-static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
-static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
-static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
-static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 162;
-int animatedDistance;
+
 double monthlyrate;
 double ratevalue;
 double amount;
 double period;
 Exceptions *alert;
-
 coreCalculations *Calculator;
+
 - (void)viewDidLoad
-{       // self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bag_of_money.png"]];
-    principalAmount.delegate = self;
-    rate.delegate = self;
-    loanterm.delegate = self;
+{   
+    principalAmount.delegate = (id)self;
+    rate.delegate = (id)self;
+    loanterm.delegate = (id)self;
     principalAmount.keyboardType = UIKeyboardTypeDecimalPad;
     rate.keyboardType = UIKeyboardTypeDecimalPad;
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-//        [super viewDidLoad];
+
     
 
    
@@ -141,40 +135,38 @@ coreCalculations *Calculator;
 
     }
 }
+// The following code have been commented out for future purposes, in which the main task would be support landscape mode for this app.
 
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
-}
-
-
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    scrollView.contentInset = contentInsets;
-    scrollView.scrollIndicatorInsets = contentInsets;
-}
+//- (void)registerForKeyboardNotifications
+//{
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWasShown:)
+//                                                 name:UIKeyboardDidShowNotification object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(keyboardWillBeHidden:)
+//                                                 name:UIKeyboardWillHideNotification object:nil];
+//    
+//}
+//
+//
+//- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+//{
+//    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+//    scrollView.contentInset = contentInsets;
+//    scrollView.scrollIndicatorInsets = contentInsets;
+//}
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {textField.backgroundColor = [UIColor whiteColor];
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.25];
     self.view.frame = CGRectMake(0,-20,320,400);
-    activeField = textField;
+    //activeField = textField;
 
     [UIView commitAnimations];
    }
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    activeField = nil;
-}
+
 
 - (IBAction)backgroundTouchedHideKeyboard:(id)sender  
 {  

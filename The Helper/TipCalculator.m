@@ -20,8 +20,8 @@ double totalBillValue;
 coreCalculations *calculator;
 Exceptions *tipAlert;
 - (void)viewDidLoad
-{   billAmount.delegate = self;
-    rate.delegate = self;
+{   billAmount.delegate = (id)self;
+    rate.delegate = (id)self;
     rate.keyboardType = UIKeyboardTypeDecimalPad;
     [super viewDidLoad];
 }
@@ -117,12 +117,7 @@ Exceptions *tipAlert;
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated 
-{
-    //billAmount.text = nil;
-    //rate.text = nil;
-    //slider.value = 0;
-}
+
 - (IBAction) sliderValueChanged:(UISlider *)sender {  
   	UISlider *rateslider = (UISlider *) sender;
 	float progressAsInt =(float)(rateslider.value + 0.0f);

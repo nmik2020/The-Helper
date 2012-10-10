@@ -16,8 +16,8 @@ double monthlyrate;
 double tip;
 - (double)calculateEmi:(double)rate perMonth:(double)principal ofLoan:(double)period
 {
-    monthlyrate = (rate/12/100);
-    emi = (principal*monthlyrate*(pow((1+monthlyrate), period)))/(pow((1+monthlyrate), period)-1);
+    monthlyrate = (rate/12/100); //Equation to calculate monthly rate
+    emi = (principal*monthlyrate*(pow((1+monthlyrate), period)))/(pow((1+monthlyrate), period)-1); //Equation to find EMI
     return emi;
 }
 - (double)calculateInterest:(double)emi of:(double)period Loan:(double)principal{

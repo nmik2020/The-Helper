@@ -11,6 +11,7 @@
 #import "TipCalculator.h"
 @implementation Exceptions
 @synthesize errorMessage;
+///// EMI Exception Functions  ////////////////////////
 -(void)rateOutOfBoundsAlert:(EmiCalculator *)reciever
 {
     
@@ -104,7 +105,7 @@ if(count!=[reciever.principalAmount.text length] )
     reciever.rate.backgroundColor = [UIColor yellowColor];
     reciever.rate.placeholder = @"Enter Rate Values!!!!";
 }
-///// TIP FUNCTIONS
+///// Tip Exception Functions  ////////////////////////
 -(void)billAmountInvalidTypeAlert:(TipCalculator* )reciever withCount:(NSUInteger)count
 {
     if(count!=[reciever.billAmount.text length] )
