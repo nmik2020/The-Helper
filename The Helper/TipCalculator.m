@@ -13,15 +13,15 @@
 
 @implementation TipCalculator
 @synthesize tip= _tip;
-@synthesize billAmount,rate,calculate,slider,tipCanBeCalculated,billAmountLabel,rateLabel;
+@synthesize billAmount,rate,calculate,slider,tipCanBeCalculated,billAmountLabel,rateLabel,rateIsDecimal;
 
 double tipRate;
 double totalBillValue;
 coreCalculations *calculator;
 Exceptions *tipAlert;
 - (void)viewDidLoad
-{
-
+{   billAmount.delegate = self;
+    rate.delegate = self;
     rate.keyboardType = UIKeyboardTypeDecimalPad;
     [super viewDidLoad];
 }
@@ -38,7 +38,7 @@ Exceptions *tipAlert;
     if (!tipAlert) {
         tipAlert = [[Exceptions alloc]init];
     }
-    NSRegularExpression *tipRegexString = [NSRegularExpression regularExpressionWithPattern:@"[0-9.]" options:NSRegularExpressionSearch error:&error];
+    NSRegularExpression *tipRegexString = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:NSRegularExpressionSearch error:&error];
     NSUInteger billAmountCount = [tipRegexString  numberOfMatchesInString:billAmount.text
                                                                     options:0 range:NSMakeRange(0, [billAmount.text length])];
     NSUInteger tipRateCount = [tipRegexString  numberOfMatchesInString:rate.text
@@ -61,18 +61,25 @@ Exceptions *tipAlert;
         if(billAmountCount!=[billAmount.text length])
             [tipAlert billAmountInvalidTypeAlert:self withCount:billAmountCount];
         
-        if(tipRateCount!=[rate.text length])
-            [tipAlert tipRateInvalidTypeAlert:self withCount:billAmountCount];
-                
-        tipCanBeCalculated = FALSE;
-    }
-    if ((![billAmount.text length]) ||(![rate.text length]) )    {
-        if(![billAmount.text length])
-            [tipAlert tipFieldEmptyAlert:self];
-        if(![rate.text length])
-      [tipAlert tipFieldEmptyAlert:self];
-               tipCanBeCalculated=FALSE;
+        if(tipRateCount!=[rate.text length] && tipRateCount!=([rate.text length]-1))
+            [tipAlert tipRateInvalidTypeAlert:self withCount:tipRateCount];
+        else if(tipRateCount == ([rate.text length]-1))
+        {    rateIsDecimal=TRUE;
+            tipCanBeCalculated=TRUE;
+        }
+        if (!rateIsDecimal) {
+            tipCanBeCalculated = FALSE;
+        }
         
+        
+    }
+    if ((![billAmount.text length]) || (![rate.text length]) )
+    {
+        if(![billAmount.text length])
+            [tipAlert billAmountFieldEmptyAlert:self];
+        if(![rate.text length])
+      [tipAlert tipRateFieldEmptyAlert:self];
+               tipCanBeCalculated=FALSE;
     }
     
     if(([billAmount.text doubleValue])<0 || ([rate.text doubleValue]<0) )
@@ -88,8 +95,8 @@ Exceptions *tipAlert;
     }
     if(tipCanBeCalculated)
     {    
-        tipRate =  [rate.text floatValue];
-        totalBillValue = [billAmount.text floatValue];
+        tipRate =  [rate.text doubleValue];
+        totalBillValue = [billAmount.text doubleValue];
         _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
     [self performSegueWithIdentifier:segueIdentifier sender:self];
     }
@@ -99,6 +106,15 @@ Exceptions *tipAlert;
     [slider setValue:[rate.text floatValue] animated:YES];
 }
 
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{textField.backgroundColor = [UIColor whiteColor];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.25];
+    self.view.frame = CGRectMake(0,-20,320,400);
+    [UIView commitAnimations];
+    
+}
 
 
 - (void)viewWillDisappear:(BOOL)animated 

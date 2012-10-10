@@ -7,6 +7,8 @@
    UITextField *principalAmount;
    UIButton *calculate;
    UISlider *slider;
+    UIScrollView *scrollView;
+    UIViewController   *activeField;
 
     }
 @property (nonatomic,strong) IBOutlet UITextField *principalAmount;
@@ -19,6 +21,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *rateErrorLabel;
 @property (nonatomic, strong) IBOutlet UILabel *loantermErrorLabel;
 @property(nonatomic)        BOOL        canCalculate;
+@property(nonatomic)        BOOL        gotDecimal;
+
 
 @property double emi;
 @property double interest;

@@ -2,7 +2,7 @@
 //  Constants.h
 //  The Helper
 //
-//  Created by qbadmin on 10/4/12.
+//  Created by Nidal on 10/4/12.
 //
 //
 

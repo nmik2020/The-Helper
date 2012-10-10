@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "371108724.540717"
+         timestampString = "371476944.849584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "371108724.540717"
+         timestampString = "371476944.849584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,44 +138,44 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "371108724.540717"
+         timestampString = "371476944.849584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151">
+         startingLineNumber = "167"
+         endingLineNumber = "167">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "371108724.540717"
+         timestampString = "371476944.849584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153">
+         startingLineNumber = "169"
+         endingLineNumber = "169">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "371108724.540717"
+         timestampString = "371476944.849584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154">
+         startingLineNumber = "170"
+         endingLineNumber = "170">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "371108724.540717"
+         timestampString = "371476944.849584"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149">
+         startingLineNumber = "165"
+         endingLineNumber = "165">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -221,11 +221,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/EmiCalculator.m"
-         timestampString = "371035723.588611"
+         timestampString = "371535399.434426"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "150"
-         endingLineNumber = "150"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -234,11 +234,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/EmiCalculator.m"
-         timestampString = "371035053.568418"
+         timestampString = "371532476.336272"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>

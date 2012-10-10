@@ -20,6 +20,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *billAmountLabel;
 @property (nonatomic, strong) IBOutlet UILabel *rateLabel;
 @property (nonatomic) BOOL tipCanBeCalculated;
+@property (nonatomic) BOOL rateIsDecimal;
 
 
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
