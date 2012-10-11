@@ -7,6 +7,7 @@
 #import "coreCalculations.h"
 #import "Exceptions.h"
 #import "Constants.h"
+#import "connectToEmiServer.h"
 @interface EmiCalculator ()
 
 @end
@@ -23,7 +24,7 @@ double amount;
 double period;
 Exceptions *alert;
 coreCalculations *Calculator;
-
+connectToEmiServer *connection;
 - (void)viewDidLoad
 {   
     principalAmount.delegate = (id)self;
@@ -56,7 +57,7 @@ coreCalculations *Calculator;
     principalAmountErrorLabel.text = @"";
     rateErrorLabel.text = @"";
     canCalculate=TRUE;
-
+    connection = [[connectToEmiServer alloc]init];
     if (!alert) {
         alert = [[Exceptions alloc]init];
     }
@@ -127,10 +128,11 @@ coreCalculations *Calculator;
         
     }
     if(canCalculate)
-    {   
-        _emi = [Calculator calculateEmi:ratevalue perMonth:amount ofLoan:period];
-        _interest= [Calculator calculateInterest:_emi of:period Loan:amount];
-        _totalAmount=[Calculator calculateTotalAmount:amount paid:_interest];
+    {   //[connection sendRequestToCalculate:ratevalue andFetch:amount Response:period];
+        [connection test];
+//        _emi = [Calculator calculateEmi:ratevalue perMonth:amount ofLoan:period];
+//        _interest= [Calculator calculateInterest:_emi of:period Loan:amount];
+//        _totalAmount=[Calculator calculateTotalAmount:amount paid:_interest];
     [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
 
     }
