@@ -30,7 +30,6 @@
 		2282838115FF085E00AF9416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2282837F15FF085E00AF9416 /* InfoPlist.strings */; };
 		2282838415FF085E00AF9416 /* The_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282838315FF085E00AF9416 /* The_HelperTests.m */; };
 		2282839315FF1D4D00AF9416 /* EmiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */; };
-		228388B71626E1D500AD359E /* index.php in Resources */ = {isa = PBXBuildFile; fileRef = 228388B61626E1D500AD359E /* index.php */; };
 		228388CA1626E5FF00AD359E /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 228388BF1626E5FF00AD359E /* NSObject+SBJSON.m */; };
 		228388CB1626E5FF00AD359E /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 228388C11626E5FF00AD359E /* NSString+SBJSON.m */; };
 		228388CC1626E5FF00AD359E /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 228388C31626E5FF00AD359E /* SBJSON.m */; };
@@ -294,7 +293,6 @@
 		2282838315FF085E00AF9416 /* The_HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_HelperTests.m; sourceTree = "<group>"; };
 		2282839115FF1D4D00AF9416 /* EmiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmiDetailViewController.h; sourceTree = "<group>"; };
 		2282839215FF1D4D00AF9416 /* EmiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmiDetailViewController.m; sourceTree = "<group>"; };
-		228388B61626E1D500AD359E /* index.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = index.php; sourceTree = "<group>"; };
 		228388BD1626E5FF00AD359E /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		228388BE1626E5FF00AD359E /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		228388BF1626E5FF00AD359E /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -593,7 +591,6 @@
 				22F963631615A39800D64829 /* dollar.png */,
 				22F963521615622300D64829 /* coreCalculations.h */,
 				22F963531615622300D64829 /* coreCalculations.m */,
-				228388B61626E1D500AD359E /* index.php */,
 				22828091161C5957004DF361 /* Exceptions.h */,
 				22828092161C5957004DF361 /* Exceptions.m */,
 				2282835C15FF085E00AF9416 /* PrincipalAppDelegate.h */,
@@ -1179,7 +1176,6 @@
 				2276F06F1619507100D9706D /* retina_wood_@2X.png in Resources */,
 				2276F0701619507100D9706D /* retina_wood.png in Resources */,
 				2276F073161951C700D9706D /* bag_of_money.png in Resources */,
-				228388B71626E1D500AD359E /* index.php in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
