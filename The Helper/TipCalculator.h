@@ -5,6 +5,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "connectToTipServer.h"
 
 @interface TipCalculator : UIViewController{
     UITextField *billAmount;

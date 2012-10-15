@@ -27,6 +27,9 @@
 @property double emi;
 @property double interest;
 @property double totalAmount;
+
+
+
 - (IBAction) sliderValueChanged:(id)sender;  
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
 - (IBAction)calculateEmi:(id)sender; 

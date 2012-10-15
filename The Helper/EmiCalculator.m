@@ -18,7 +18,6 @@
 @synthesize interest = _interest;
 @synthesize totalAmount = _totalAmount;
 
-double monthlyrate;
 double ratevalue;
 double amount;
 double period;
@@ -58,6 +57,7 @@ connectToEmiServer *connection;
     rateErrorLabel.text = @"";
     canCalculate=TRUE;
     connection = [[connectToEmiServer alloc]init];
+    connection.delegate = self;
     if (!alert) {
         alert = [[Exceptions alloc]init];
     }
@@ -128,14 +128,17 @@ connectToEmiServer *connection;
         
     }
     if(canCalculate)
-    {   //[connection sendRequestToCalculate:ratevalue andFetch:amount Response:period];
-        [connection test];
-//        _emi = [Calculator calculateEmi:ratevalue perMonth:amount ofLoan:period];
-//        _interest= [Calculator calculateInterest:_emi of:period Loan:amount];
-//        _totalAmount=[Calculator calculateTotalAmount:amount paid:_interest];
-    [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
+    {  
+        [connection performRequest:amount andFetch:period Response:ratevalue];
 
     }
+}
+- (void) calculationDidFinish:(NSMutableDictionary *)dictionary {
+    _emi=[[dictionary valueForKey:@"emi"]doubleValue];
+    _interest=[[dictionary valueForKey:@"rate"]doubleValue];
+    _totalAmount=[[dictionary valueForKey:@"totalamount"]doubleValue];
+   
+   [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
 }
 // The following code have been commented out for future purposes, in which the main task would be support landscape mode for this app.
 
@@ -158,6 +161,7 @@ connectToEmiServer *connection;
 //    scrollView.contentInset = contentInsets;
 //    scrollView.scrollIndicatorInsets = contentInsets;
 //}
+
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {textField.backgroundColor = [UIColor whiteColor];

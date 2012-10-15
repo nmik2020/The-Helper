@@ -36,7 +36,9 @@
 		228388CD1626E5FF00AD359E /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 228388C51626E5FF00AD359E /* SBJsonBase.m */; };
 		228388CE1626E5FF00AD359E /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 228388C71626E5FF00AD359E /* SBJsonParser.m */; };
 		228388CF1626E5FF00AD359E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 228388C91626E5FF00AD359E /* SBJsonWriter.m */; };
+		2284BD1A1628413800D70960 /* connectToTipServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284BD191628413800D70960 /* connectToTipServer.m */; };
 		22850EAB162671E90063903C /* connectToEmiServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 22850EAA162671E90063903C /* connectToEmiServer.m */; };
+		2285446E162BF22A003E1ADC /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2285446D162BF22A003E1ADC /* XMLParser.m */; };
 		2285D97C161D6A30006162C4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2285D97B161D6A30006162C4 /* Constants.m */; };
 		228FDBB11614689D00D86E9E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 228FDBB01614689D00D86E9E /* Default.png */; };
 		228FDBB4161468B100D86E9E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 228FDBB3161468B100D86E9E /* Default@2x.png */; };
@@ -306,8 +308,12 @@
 		228388C71626E5FF00AD359E /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		228388C81626E5FF00AD359E /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		228388C91626E5FF00AD359E /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		2284BD181628413800D70960 /* connectToTipServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectToTipServer.h; sourceTree = "<group>"; };
+		2284BD191628413800D70960 /* connectToTipServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = connectToTipServer.m; sourceTree = "<group>"; };
 		22850EA9162671E90063903C /* connectToEmiServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connectToEmiServer.h; sourceTree = "<group>"; };
 		22850EAA162671E90063903C /* connectToEmiServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = connectToEmiServer.m; sourceTree = "<group>"; };
+		2285446C162BF22A003E1ADC /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		2285446D162BF22A003E1ADC /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		2285D97A161D6A30006162C4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2285D97B161D6A30006162C4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		228FDBB01614689D00D86E9E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -608,8 +614,12 @@
 				2282836A15FF085E00AF9416 /* TipCalculator.m */,
 				22C87AAD160063FE003A1AD5 /* TipDetailViewController.h */,
 				22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */,
+				2284BD181628413800D70960 /* connectToTipServer.h */,
+				2284BD191628413800D70960 /* connectToTipServer.m */,
 				2285D97A161D6A30006162C4 /* Constants.h */,
 				2285D97B161D6A30006162C4 /* Constants.m */,
+				2285446C162BF22A003E1ADC /* XMLParser.h */,
+				2285446D162BF22A003E1ADC /* XMLParser.m */,
 				2282836C15FF085E00AF9416 /* second.png */,
 				2282836E15FF085E00AF9416 /* second@2x.png */,
 				2282835415FF085E00AF9416 /* Supporting Files */,
@@ -1226,6 +1236,8 @@
 				228388CD1626E5FF00AD359E /* SBJsonBase.m in Sources */,
 				228388CE1626E5FF00AD359E /* SBJsonParser.m in Sources */,
 				228388CF1626E5FF00AD359E /* SBJsonWriter.m in Sources */,
+				2284BD1A1628413800D70960 /* connectToTipServer.m in Sources */,
+				2285446E162BF22A003E1ADC /* XMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

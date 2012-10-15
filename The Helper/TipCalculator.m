@@ -10,7 +10,7 @@
 #import "coreCalculations.h"
 #import "Constants.h"
 #import "Exceptions.h"
-
+#import "XMLParser.h"
 @implementation TipCalculator
 @synthesize tip= _tip;
 @synthesize billAmount,rate,calculate,slider,tipCanBeCalculated,billAmountLabel,rateLabel,rateIsDecimal;
@@ -19,6 +19,8 @@ double tipRate;
 double totalBillValue;
 coreCalculations *calculator;
 Exceptions *tipAlert;
+connectToTipServer *tipConnection;
+
 - (void)viewDidLoad
 {   billAmount.delegate = (id)self;
     rate.delegate = (id)self;
@@ -34,7 +36,8 @@ Exceptions *tipAlert;
     rateLabel.text = @"";
     
     tipCanBeCalculated=TRUE;
-    
+//    tipConnection.delegate = self;
+
     if (!tipAlert) {
         tipAlert = [[Exceptions alloc]init];
     }
@@ -45,8 +48,6 @@ Exceptions *tipAlert;
                                                                   options:0 range:NSMakeRange(0, [rate.text length])];
     
     
-    
-    
     [billAmount resignFirstResponder];
     [rate resignFirstResponder];
     [calculate resignFirstResponder];
@@ -54,15 +55,15 @@ Exceptions *tipAlert;
     calculator = [[coreCalculations alloc]init];
     tipRate = [rate.text doubleValue];
     totalBillValue = [billAmount.text doubleValue];
-    
+    tipConnection = [[connectToTipServer alloc]init];
+    tipConnection.delegate = self;
     if(billAmountCount!=[billAmount.text length] || tipRateCount!=[rate.text length] )
     {
         
         if(billAmountCount!=[billAmount.text length])
-            [tipAlert billAmountInvalidTypeAlert:self withCount:billAmountCount];
-        
+        [tipAlert billAmountInvalidTypeAlert:self withCount:billAmountCount];
         if(tipRateCount!=[rate.text length] && tipRateCount!=([rate.text length]-1))
-            [tipAlert tipRateInvalidTypeAlert:self withCount:tipRateCount];
+        [tipAlert tipRateInvalidTypeAlert:self withCount:tipRateCount];
         else if(tipRateCount == ([rate.text length]-1))
         {    rateIsDecimal=TRUE;
             tipCanBeCalculated=TRUE;
@@ -94,19 +95,45 @@ Exceptions *tipAlert;
         
     }
     if(tipCanBeCalculated)
-    {    
-        tipRate =  [rate.text doubleValue];
-        totalBillValue = [billAmount.text doubleValue];
-        _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
-    [self performSegueWithIdentifier:segueIdentifier sender:self];
+    {   //tipRate =  [rate.text doubleValue];
+        //totalBillValue = [billAmount.text doubleValue];
+        [tipConnection performRequest:tipRate andResponse:totalBillValue];
+
+//        _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
+    //[self performSegueWithIdentifier:segueIdentifier sender:self];
     }
    
 }
 - (IBAction) rateTextValueChanged:(UITextField *)sender {  
     [slider setValue:[rate.text floatValue] animated:YES];
 }
+- (void) tipCalculationDidFinish:(NSString *)xmlData{
+    
+    [self doParse:[xmlData dataUsingEncoding:NSUTF8StringEncoding]];
 
+    [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
+}
 
+- (void) doParse:(NSData *)data {
+    
+    NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:data];
+    
+    XMLParser *parser = [[XMLParser alloc] init];
+    
+    [nsXmlParser setDelegate:parser];
+    
+    BOOL success = [nsXmlParser parse];
+    
+    // test the result
+    if (success) {
+        
+    } else {
+        NSLog(@"Error parsing document!");
+    }
+    
+    
+    
+}
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {textField.backgroundColor = [UIColor whiteColor];
     [UIView beginAnimations:nil context:NULL];

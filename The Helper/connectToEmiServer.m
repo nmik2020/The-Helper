@@ -2,84 +2,75 @@
 //  connectToEmiServer.m
 //  The Helper
 //
-//  Created by qbadmin on 10/11/12.
+//  Created by Nidal on 10/11/12.
 //
 //
 
 #import "connectToEmiServer.h"
 #import "JSON.h"
+#import "EmiCalculator.h"
 @implementation connectToEmiServer
-//- (void)sendRequestToCalculate:(double)amount andFetch:(double)loanterm Response:(double)rate
-//{
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-//                                    initWithURL:[NSURL
-//                                                 URLWithString:@"http://localhost:8888/PhpProject1/index.php"]];
-//    
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"text/xml"
-//   forHTTPHeaderField:@"Content-type"];
-//    
-//    NSString *xmlString = @"<data><item>Item 1</item><item>Item 2</item></data>";
-//    
-//    [request setValue:[NSString stringWithFormat:@"%d",
-//                       [xmlString length]]
-//   forHTTPHeaderField:@"Content-length"];
-//    
-//    [request setHTTPBody:[xmlString
-//                          dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    [[NSURLConnection alloc] 
-//     initWithRequest:request 
-//     delegate:self];
-//}
-//
-//NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com/"]
-//                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
-//                                      timeoutInterval:60.0];
-//// create the connection with the request
-//// and start loading the data
-//NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//if (theConnection) {
-//    // Create the NSMutableData to hold the received data.
-//    // receivedData is an instance variable declared elsewhere.
-//    receivedData = [[NSMutableData data] retain];
-//} else {
-//    // Inform the user that the connection failed.
-//}
-
-//prepar request
+@synthesize resultArray= _resultArray;
+@synthesize delegate;
+NSMutableData *webData ;
+NSXMLParser *parser;
 -(void)test{
-    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/index.php"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-    [request setURL:[NSURL URLWithString:urlString]];
-    [request setHTTPMethod:@"POST"];
-
-//set headers
-    NSString *contentType = [NSString stringWithFormat:@"text/xml"];
-    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-
-//create the body
-    NSMutableData *postBody = [NSMutableData data];
-//    [postBody appendData:[[NSString stringWithFormat:@"<xml>"] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [postBody appendData:[[NSString stringWithFormat:@"<yourcode/>"] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [postBody appendData:[[NSString stringWithFormat:@"</xml>"] dataUsingEncoding:NSUTF8StringEncoding]];
-
-//post
-    [request setHTTPBody:postBody];
-
-//get response
-NSHTTPURLResponse* urlResponse = nil;
-NSError *error = [[NSError alloc] init];
-NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-NSLog(@"Response Code: %d", [urlResponse statusCode]);
-if ([urlResponse statusCode] >= 200 && [urlResponse statusCode] < 300) {
-    NSLog(@"Response: %@", result);
-    NSString* json_string = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-   // NSDictionary *testDict = [json_string JSONValue];
-    NSLog(@"Response: %@", json_string);
-    NSDictionary *testDict = [json_string JSONValue];
-    result=[NSString stringWithFormat:@"Result is %@",[testDict valueForKey:@"sum"]];
+    NSLog(@"Hello");
 }
+
+-(void)performRequest:(double)amount andFetch:(double)loanterm Response:(double)rate{
+    NSString *initialURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/test.php"];
+    NSURL *url=[NSURL URLWithString:initialURL];
+    
+    NSString *key = [NSString stringWithFormat:@"&totalamount=%0.02f&rate=%0.02f&period=%0.02f", amount,rate,loanterm];
+    NSData *mastData = [key dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSString *mastLength = [NSString stringWithFormat:@"%d",[mastData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:mastLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:mastData];
+   
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if( theConnection )
+    {
+        webData = [NSMutableData data] ;
+    }
+    else
+    {
+        NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+    [webData setLength: 0];
+    self.resultArray = [[NSMutableArray alloc] init];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+    [webData appendData:data];
+    
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
+    NSLog(@"ERROR with theConenction");
+    NSDictionary *errorDic = [NSDictionary dictionaryWithObject:error forKey:@"error"];
+    [self.resultArray addObject:errorDic];
+    [webData setLength:0];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    NSLog(@"DONE. Received Bytes: %d", [webData length]);
+    NSString *json = [[NSString alloc] initWithBytes: [webData mutableBytes] length:[webData length] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", json);
+    NSMutableDictionary *results = [json JSONValue];
+         NSLog(@"EMI %@",[results valueForKey:@"emi"]);
+    [self.delegate calculationDidFinish:results];
+
+    if([webData length] > 0){
+        parser = [[NSXMLParser alloc] initWithData:webData];
+        [parser setDelegate:self];
+        [parser parse];
+    }
 }
 @end
