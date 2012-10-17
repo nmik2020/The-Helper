@@ -6,8 +6,9 @@
 
 #import <UIKit/UIKit.h>
 #import "connectToTipServer.h"
+#import "XMLParser.h"
 
-@interface TipCalculator : UIViewController{
+@interface TipCalculator : UIViewController<xml>{
     UITextField *billAmount;
     UITextField *rate;
     UISlider *slider;
@@ -29,5 +30,7 @@
 - (IBAction)calculateTip:(id)sender; 
 -(void)negativeAlert;
 -(void)fieldEmptyAlert;
+-(void)getValue:(NSString*)value;
+
 
 @end

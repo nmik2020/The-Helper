@@ -43,6 +43,7 @@
 		228FDBB11614689D00D86E9E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 228FDBB01614689D00D86E9E /* Default.png */; };
 		228FDBB4161468B100D86E9E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 228FDBB3161468B100D86E9E /* Default@2x.png */; };
 		228FDBB6161468DA00D86E9E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 228FDBB5161468DA00D86E9E /* Default-568h@2x.png */; };
+		22C449AE162D116A007D6A6E /* tipXmlInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C449AD162D116A007D6A6E /* tipXmlInput.m */; };
 		22C87AAF160063FE003A1AD5 /* TipDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */; };
 		22F963541615622300D64829 /* coreCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F963531615622300D64829 /* coreCalculations.m */; };
 		22F963641615A39800D64829 /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = 22F963631615A39800D64829 /* dollar.png */; };
@@ -319,6 +320,8 @@
 		228FDBB01614689D00D86E9E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		228FDBB3161468B100D86E9E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		228FDBB5161468DA00D86E9E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		22C449AC162D116A007D6A6E /* tipXmlInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tipXmlInput.h; sourceTree = "<group>"; };
+		22C449AD162D116A007D6A6E /* tipXmlInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tipXmlInput.m; sourceTree = "<group>"; };
 		22C87AAD160063FE003A1AD5 /* TipDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipDetailViewController.h; sourceTree = "<group>"; };
 		22C87AAE160063FE003A1AD5 /* TipDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipDetailViewController.m; sourceTree = "<group>"; };
 		22F963521615622300D64829 /* coreCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coreCalculations.h; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				2285D97B161D6A30006162C4 /* Constants.m */,
 				2285446C162BF22A003E1ADC /* XMLParser.h */,
 				2285446D162BF22A003E1ADC /* XMLParser.m */,
+				22C449AC162D116A007D6A6E /* tipXmlInput.h */,
+				22C449AD162D116A007D6A6E /* tipXmlInput.m */,
 				2282836C15FF085E00AF9416 /* second.png */,
 				2282836E15FF085E00AF9416 /* second@2x.png */,
 				2282835415FF085E00AF9416 /* Supporting Files */,
@@ -1238,6 +1243,7 @@
 				228388CF1626E5FF00AD359E /* SBJsonWriter.m in Sources */,
 				2284BD1A1628413800D70960 /* connectToTipServer.m in Sources */,
 				2285446E162BF22A003E1ADC /* XMLParser.m in Sources */,
+				22C449AE162D116A007D6A6E /* tipXmlInput.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

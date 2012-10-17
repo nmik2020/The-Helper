@@ -2,7 +2,7 @@
 //  connectToTipServer.h
 //  The Helper
 //
-//  Created by qbadmin on 10/12/12.
+//  Created by Nidal on 10/12/12.
 //
 //
 
@@ -16,6 +16,6 @@
 @property(nonatomic,strong) id <tipProtocol> delegate;
 @end
 @protocol tipProtocol
-- (void) tipCalculationDidFinish:(NSString *)xmlData;
+- (void) tipCalculationDidFinish:(NSString *)xmlData ;
 @end
 

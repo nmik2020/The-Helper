@@ -64,10 +64,10 @@ NSXMLParser *tipParser;
     NSLog(@"%@", theXML);
     [self.delegate tipCalculationDidFinish:theXML];
 
-    if([tipData length] > 0){
-        tipParser = [[NSXMLParser alloc] initWithData:tipData];
-        [tipParser setDelegate:self];
-        [tipParser parse];
-    }
+//    if([tipData length] > 0){
+//        tipParser = [[NSXMLParser alloc] initWithData:tipData];
+//        [tipParser setDelegate:self];
+//        [tipParser parse];
+//}
 }
 @end

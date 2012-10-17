@@ -10,7 +10,6 @@
 #import "coreCalculations.h"
 #import "Constants.h"
 #import "Exceptions.h"
-#import "XMLParser.h"
 @implementation TipCalculator
 @synthesize tip= _tip;
 @synthesize billAmount,rate,calculate,slider,tipCanBeCalculated,billAmountLabel,rateLabel,rateIsDecimal;
@@ -20,7 +19,7 @@ double totalBillValue;
 coreCalculations *calculator;
 Exceptions *tipAlert;
 connectToTipServer *tipConnection;
-
+XMLParser *parsexml;
 - (void)viewDidLoad
 {   billAmount.delegate = (id)self;
     rate.delegate = (id)self;
@@ -30,11 +29,11 @@ connectToTipServer *tipConnection;
 
 -(IBAction)calculateTip:(id)sender{
     calculator = [[coreCalculations alloc]init];
-    
+   
+
     NSError *error = NULL;
     billAmountLabel.text = @"";
     rateLabel.text = @"";
-    
     tipCanBeCalculated=TRUE;
 //    tipConnection.delegate = self;
 
@@ -57,6 +56,8 @@ connectToTipServer *tipConnection;
     totalBillValue = [billAmount.text doubleValue];
     tipConnection = [[connectToTipServer alloc]init];
     tipConnection.delegate = self;
+   
+
     if(billAmountCount!=[billAmount.text length] || tipRateCount!=[rate.text length] )
     {
         
@@ -98,8 +99,7 @@ connectToTipServer *tipConnection;
     {   //tipRate =  [rate.text doubleValue];
         //totalBillValue = [billAmount.text doubleValue];
         [tipConnection performRequest:tipRate andResponse:totalBillValue];
-
-//        _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
+        //        _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
     //[self performSegueWithIdentifier:segueIdentifier sender:self];
     }
    
@@ -108,32 +108,22 @@ connectToTipServer *tipConnection;
     [slider setValue:[rate.text floatValue] animated:YES];
 }
 - (void) tipCalculationDidFinish:(NSString *)xmlData{
-    
-    [self doParse:[xmlData dataUsingEncoding:NSUTF8StringEncoding]];
-
+    parsexml = [[XMLParser alloc]init];
+    parsexml.delegatew = self;
+    parsexml.ew = self;
+    [parsexml doParse:[xmlData dataUsingEncoding:NSUTF8StringEncoding]];
+}
+-(void)sendData:(NSString*)tip
+{   _tip = [tip doubleValue];
     [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
+
+}
+-(void)getValue:(NSString*)value{
+   
+    _tip = [value doubleValue];
+
 }
 
-- (void) doParse:(NSData *)data {
-    
-    NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:data];
-    
-    XMLParser *parser = [[XMLParser alloc] init];
-    
-    [nsXmlParser setDelegate:parser];
-    
-    BOOL success = [nsXmlParser parse];
-    
-    // test the result
-    if (success) {
-        
-    } else {
-        NSLog(@"Error parsing document!");
-    }
-    
-    
-    
-}
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {textField.backgroundColor = [UIColor whiteColor];
     [UIView beginAnimations:nil context:NULL];
