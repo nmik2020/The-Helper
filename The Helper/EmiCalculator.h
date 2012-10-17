@@ -3,19 +3,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "emiInputValidator.h"
 @interface EmiCalculator : UIViewController{
    UITextField *principalAmount;
    UIButton *calculate;
    UISlider *slider;
-    UIScrollView *scrollView;
-    UIViewController   *activeField;
+   UIScrollView *scrollView;
+   UIViewController   *activeField;
 
     }
 @property (nonatomic,strong) IBOutlet UITextField *principalAmount;
 @property (nonatomic,strong) IBOutlet UITextField *rate;
 @property (nonatomic,strong) IBOutlet UITextField *loanterm;
-@property (nonatomic, strong) IBOutlet UILabel *showLabel;
-@property (nonatomic, strong) IBOutlet UIButton *calculate;
+
 @property (nonatomic, strong) IBOutlet UISlider *slider;
 @property (nonatomic, strong) IBOutlet UILabel *principalAmountErrorLabel;
 @property (nonatomic, strong) IBOutlet UILabel *rateErrorLabel;
@@ -33,9 +33,6 @@
 - (IBAction) sliderValueChanged:(id)sender;  
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
 - (IBAction)calculateEmi:(id)sender; 
-- (double)calculateEmi;
-- (double)calculateInterest;
-- (double)calculateTotalAmount;
 - (IBAction)backgroundTouchedHideKeyboard:(id)sender ;
 
 @end

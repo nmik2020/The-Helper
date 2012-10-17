@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
          landmarkName = "-shouldAutorotateToInterfaceOrientation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,7 +138,18 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "177"
+         endingLineNumber = "177">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/TipCalculator.m"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "179"
@@ -149,33 +160,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "181"
-         endingLineNumber = "181">
+         startingLineNumber = "180"
+         endingLineNumber = "180">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "182"
-         endingLineNumber = "182">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "177"
-         endingLineNumber = "177">
+         startingLineNumber = "175"
+         endingLineNumber = "175">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -195,11 +195,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/EmiCalculator.m"
-         timestampString = "371026882.99826"
+         timestampString = "372148589.834866"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "14"
-         endingLineNumber = "14">
+         startingLineNumber = "10"
+         endingLineNumber = "10">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -219,11 +219,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/EmiCalculator.m"
-         timestampString = "371980532.320849"
+         timestampString = "372164366.246356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -232,11 +232,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/EmiCalculator.m"
-         timestampString = "371731876.185362"
+         timestampString = "372148661.44679"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "28"
-         endingLineNumber = "28"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -310,11 +310,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/EmiCalculator.m"
-         timestampString = "371980532.320849"
+         timestampString = "372164366.246356"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "141"
-         endingLineNumber = "141"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "-calculationDidFinish:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -323,11 +323,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "111"
-         endingLineNumber = "111"
+         startingLineNumber = "109"
+         endingLineNumber = "109"
          landmarkName = "-tipCalculationDidFinish:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -336,11 +336,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372060789.554618"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
          landmarkName = "-initXMLParser"
          landmarkType = "5">
       </FileBreakpoint>
@@ -349,11 +349,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137402.864754"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "-doParse:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -362,11 +362,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137402.864754"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
          landmarkName = "-parser:foundCharacters:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -375,7 +375,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137402.864754"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "57"
@@ -388,38 +388,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372066327.187116"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "31"
          endingLineNumber = "31"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "The Helper/XMLParser.m"
-         timestampString = "372137402.864754"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
-         landmarkName = "-doParse:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "The Helper/XMLParser.m"
-         timestampString = "372137402.864754"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
-         landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -440,7 +414,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137402.864754"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "55"
@@ -453,11 +427,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372073636.861568"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
          landmarkName = "-calculateTip:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -466,11 +440,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/TipCalculator.m"
-         timestampString = "372082820.518521"
+         timestampString = "372168275.533086"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
          landmarkName = "-sendData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -479,11 +453,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137344.217284"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
+         startingLineNumber = "29"
+         endingLineNumber = "29"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -492,7 +466,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137499.27589"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "35"
@@ -505,7 +479,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137506.652805"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "36"
@@ -518,13 +492,65 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "The Helper/XMLParser.m"
-         timestampString = "372137560.684431"
+         timestampString = "372163681.293379"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/TipCalculator.m"
+         timestampString = "372168275.533086"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "112"
+         endingLineNumber = "112"
+         landmarkName = "-tipCalculationDidFinish:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/XMLParser.m"
+         timestampString = "372163681.293379"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/XMLParser.m"
+         timestampString = "372163681.293379"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-doParse:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "The Helper/emiInputValidator.m"
+         timestampString = "372164146.02499"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
+         landmarkName = "@implementation emiInputValidator"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>

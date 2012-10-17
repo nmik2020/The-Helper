@@ -10,9 +10,8 @@
 #import "XMLParser.h"
 #import "TipCalculator.h"
 @implementation XMLParser
-@synthesize inputs, finalTip,finalResult;
+@synthesize finalTip,finalResult,check;
 @synthesize delegatew;
-@synthesize ew;
 - (XMLParser *) initXMLParser {
 	
 	self = [super init];
@@ -28,13 +27,13 @@ didStartElement:(NSString *)elementName
     attributes:(NSDictionary *)attributeDict {
 	
     if ([elementName isEqualToString:@"TipOutput"]) {
+        //check = [[NSMutableDictionary alloc]init ];
         NSLog(@"Parsed first tag TipOutput");
-       // inputs = [[tipXmlInput alloc] init];
-        
+        //[check setObject:[attributeDict objectForKey:@"value"] forKey:@"value"];
+        NSLog(@"Setting into dictionary Check %@",[check valueForKey:@"value"]);
     }
     if ([elementName isEqualToString:@"Tip"]) {
         NSLog(@"Parsed second tag Tip");
-        // inputs = [[tipXmlInput alloc] init];
         
     }
 
@@ -48,8 +47,9 @@ didStartElement:(NSString *)elementName
         if(!finalResult)
         {finalResult = [[NSString alloc]init];
 
-        finalResult = string;
+        
         }
+        finalResult = string;
         [tipSolver getValue:finalResult];
         NSLog(@"Final result : %@",finalResult);
         [self.delegatew sendData:finalResult];
@@ -69,47 +69,28 @@ didStartElement:(NSString *)elementName
     if ([elementName isEqualToString:@"TipOutput"]) {
         return;
     }
-//    
-//    if ([elementName isEqualToString:@"Tip"]) {
-//        
-//        if(!finalTip)
-//        { [finalTip addObject:inputs];
-//                        
-//       
-//        }
-//
-//           }
-//    else {
-// 
-//        [inputs setValue:currentElementValue forKey:elementName];
-//    }
-//
-    
-    //currentElementValue = nil;
+
 }
 
 
 
 - (void) doParse:(NSData *)data {
     
-    NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:data];
-    
-    XMLParser *parser = [[XMLParser alloc] initXMLParser];
-    
-    [nsXmlParser setDelegate:parser];
-    
-    BOOL success = [nsXmlParser parse];
-    
+   
+//    BOOL success = [nsXmlParser parse];
+    parser			= [[NSXMLParser alloc] initWithData:data];
+	parser.delegate = self;
+	[parser parse];
     // test the result
-    if (success) {
-        NSLog(@"No errors - user count : %i", finalTip.count);
-        NSLog(@"Final result inside do parse: %@",currentElementValue);
-
-        // get array of users here
-        //  NSMutableArray *users = [parser users];
-    } else {
-        NSLog(@"Error parsing document!");
-    }
+//    if (success) {
+//        NSLog(@"No errors - user count : %i", finalTip.count);
+//        NSLog(@"Final result inside do parse: %@",currentElementValue);
+//
+//        // get array of users here
+//        //  NSMutableArray *users = [parser users];
+//    } else {
+//        NSLog(@"Error parsing document!");
+//    }
     
     
     

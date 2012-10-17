@@ -28,8 +28,6 @@
 - (IBAction) rateTextValueChanged:(UITextField *)sender;  
 - (IBAction)sliderValueChanged:(id)sender;  
 - (IBAction)calculateTip:(id)sender; 
--(void)negativeAlert;
--(void)fieldEmptyAlert;
 -(void)getValue:(NSString*)value;
 
 

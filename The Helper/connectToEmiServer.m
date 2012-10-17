@@ -19,7 +19,7 @@ NSXMLParser *parser;
 }
 
 -(void)performRequest:(double)amount andFetch:(double)loanterm Response:(double)rate{
-    NSString *initialURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/test.php"];
+    NSString *initialURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/EmiServer.php"];
     NSURL *url=[NSURL URLWithString:initialURL];
     
     NSString *key = [NSString stringWithFormat:@"&totalamount=%0.02f&rate=%0.02f&period=%0.02f", amount,rate,loanterm];
@@ -69,7 +69,7 @@ NSXMLParser *parser;
 
     if([webData length] > 0){
         parser = [[NSXMLParser alloc] initWithData:webData];
-        [parser setDelegate:self];
+        [parser setDelegate:(id)self];
         [parser parse];
     }
 }

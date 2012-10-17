@@ -7,17 +7,15 @@
 
 #import "TipCalculator.h"
 #import "TipDetailViewController.h"
-#import "coreCalculations.h"
 #import "Constants.h"
-#import "Exceptions.h"
+#import "tipInputValidator.h"
 @implementation TipCalculator
 @synthesize tip= _tip;
 @synthesize billAmount,rate,calculate,slider,tipCanBeCalculated,billAmountLabel,rateLabel,rateIsDecimal;
 
 double tipRate;
 double totalBillValue;
-coreCalculations *calculator;
-Exceptions *tipAlert;
+tipInputValidator *tipAlert;
 connectToTipServer *tipConnection;
 XMLParser *parsexml;
 - (void)viewDidLoad
@@ -28,7 +26,7 @@ XMLParser *parsexml;
 }
 
 -(IBAction)calculateTip:(id)sender{
-    calculator = [[coreCalculations alloc]init];
+   // calculator = [[coreCalculations alloc]init];
    
 
     NSError *error = NULL;
@@ -38,7 +36,7 @@ XMLParser *parsexml;
 //    tipConnection.delegate = self;
 
     if (!tipAlert) {
-        tipAlert = [[Exceptions alloc]init];
+        tipAlert = [[tipInputValidator alloc]init];
     }
     NSRegularExpression *tipRegexString = [NSRegularExpression regularExpressionWithPattern:@"\\d" options:NSRegularExpressionSearch error:&error];
     NSUInteger billAmountCount = [tipRegexString  numberOfMatchesInString:billAmount.text
@@ -50,12 +48,12 @@ XMLParser *parsexml;
     [billAmount resignFirstResponder];
     [rate resignFirstResponder];
     [calculate resignFirstResponder];
-    
-    calculator = [[coreCalculations alloc]init];
+    parsexml = [[XMLParser alloc]init];
+    //calculator = [[coreCalculations alloc]init];
     tipRate = [rate.text doubleValue];
     totalBillValue = [billAmount.text doubleValue];
     tipConnection = [[connectToTipServer alloc]init];
-    tipConnection.delegate = self;
+    tipConnection.delegate = (id)self;
    
 
     if(billAmountCount!=[billAmount.text length] || tipRateCount!=[rate.text length] )
@@ -108,10 +106,10 @@ XMLParser *parsexml;
     [slider setValue:[rate.text floatValue] animated:YES];
 }
 - (void) tipCalculationDidFinish:(NSString *)xmlData{
-    parsexml = [[XMLParser alloc]init];
+    
     parsexml.delegatew = self;
-    parsexml.ew = self;
     [parsexml doParse:[xmlData dataUsingEncoding:NSUTF8StringEncoding]];
+   // NSLog(@"%@",[parsexml.check valueForKey:@"value"]);
 }
 -(void)sendData:(NSString*)tip
 {   _tip = [tip doubleValue];

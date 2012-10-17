@@ -17,7 +17,7 @@ NSXMLParser *tipParser;
 -(void)performRequest:(double)tipAmount2 andResponse:(double)tipRate2
 {
     NSLog(@"Entered");
-    NSString *tipURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/index.php"];
+    NSString *tipURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/TipServer.php"];
     NSURL *link=[NSURL URLWithString:tipURL];
     
     NSString *tipKey = [NSString stringWithFormat:@"&billamount=%0.02f&rate=%0.02f", tipAmount2,tipRate2];
@@ -64,10 +64,6 @@ NSXMLParser *tipParser;
     NSLog(@"%@", theXML);
     [self.delegate tipCalculationDidFinish:theXML];
 
-//    if([tipData length] > 0){
-//        tipParser = [[NSXMLParser alloc] initWithData:tipData];
-//        [tipParser setDelegate:self];
-//        [tipParser parse];
-//}
+
 }
 @end
