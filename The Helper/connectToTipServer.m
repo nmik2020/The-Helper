@@ -7,6 +7,7 @@
 //
 
 #import "connectToTipServer.h"
+#import "Constants.h"
 @implementation connectToTipServer
 @synthesize tipResult= _tipResult;
 @synthesize delegate;
@@ -17,7 +18,7 @@ NSXMLParser *tipParser;
 -(void)performRequest:(double)tipAmount2 andResponse:(double)tipRate2
 {
     NSLog(@"Entered");
-    NSString *tipURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/TipServer.php"];
+    NSString *tipURL = tipServerUrl;
     NSURL *link=[NSURL URLWithString:tipURL];
     
     NSString *tipKey = [NSString stringWithFormat:@"&billamount=%0.02f&rate=%0.02f", tipAmount2,tipRate2];

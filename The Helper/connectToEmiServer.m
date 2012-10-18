@@ -9,6 +9,7 @@
 #import "connectToEmiServer.h"
 #import "JSON.h"
 #import "EmiCalculator.h"
+#import "Constants.h"
 @implementation connectToEmiServer
 @synthesize resultArray= _resultArray;
 @synthesize delegate;
@@ -19,7 +20,7 @@ NSXMLParser *parser;
 }
 
 -(void)performRequest:(double)amount andFetch:(double)loanterm Response:(double)rate{
-    NSString *initialURL = [NSString stringWithFormat:@"http://localhost:8888/PhpProject1/EmiServer.php"];
+    NSString *initialURL = emiServerUrl;
     NSURL *url=[NSURL URLWithString:initialURL];
     
     NSString *key = [NSString stringWithFormat:@"&totalamount=%0.02f&rate=%0.02f&period=%0.02f", amount,rate,loanterm];
@@ -55,6 +56,8 @@ NSXMLParser *parser;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     NSLog(@"ERROR with theConenction");
+    [self.delegate serverDownError];
+
     NSDictionary *errorDic = [NSDictionary dictionaryWithObject:error forKey:@"error"];
     [self.resultArray addObject:errorDic];
     [webData setLength:0];

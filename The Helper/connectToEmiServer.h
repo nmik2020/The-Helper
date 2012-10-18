@@ -21,4 +21,6 @@
 
 @protocol EmiProtocol
 - (void) calculationDidFinish:(NSMutableDictionary *)dictionary;
+- (void) serverDownError;
+
 @end

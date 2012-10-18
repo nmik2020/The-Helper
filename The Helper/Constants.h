@@ -22,4 +22,7 @@ extern NSString *fieldEmptyMessage;
 extern NSString *alertButton;
 extern NSString *segueIdentifier;
 extern NSString *okayButton ;
+extern NSString *tipServerUrl ;
+extern NSString *emiServerUrl ;
+
 @end

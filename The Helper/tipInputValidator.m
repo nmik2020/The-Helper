@@ -2,7 +2,7 @@
 //  tipInputValidator.m
 //  The Helper
 //
-//  Created by qbadmin on 10/17/12.
+//  Created by Nidal on 10/17/12.
 //
 //
 
@@ -43,14 +43,15 @@
     reciever.rate.placeholder = @"Tip Rate";
     reciever.rateLabel.text = @" Enter value less than or equal to 100";
 }
+
 -(void)tipNegativeAlert:(TipCalculator*)reciever
 {   if(([reciever.billAmount.text doubleValue])<0 )
-{
+    {
     reciever.billAmount.backgroundColor = [UIColor redColor];
     reciever.billAmount.placeholder = @"Bill Amount";
     
     reciever.billAmountLabel.text = @" Bill Amount cannot be negative";
-}
+    }
     if(([reciever.rate.text doubleValue])<0 )
     {
         reciever.rate.backgroundColor = [UIColor redColor];
@@ -67,6 +68,7 @@
     reciever.billAmount.backgroundColor = [UIColor yellowColor];
     reciever.billAmount.placeholder  = @"Enter Bill Amount Value!!!!";
 }
+
 -(void)tipRateFieldEmptyAlert:(TipCalculator* )reciever
 {
     reciever.rate.backgroundColor = [UIColor yellowColor];

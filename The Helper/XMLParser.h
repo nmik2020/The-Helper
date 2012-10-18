@@ -11,21 +11,14 @@
 @protocol xml;
 @interface XMLParser : NSObject<NSXMLParserDelegate> {
     id <xml> delegatew;
-    // an ad hoc string to hold element value
     NSMutableString *currentElementValue;
-    // user object
-    // array of user objects
     NSMutableArray *finalTip ;
     NSXMLParser		*parser;
-
-   
-   // NSMutableArray *rateForTip ;
-
 }
 
 @property (nonatomic, strong) NSMutableArray *finalTip;
 @property (nonatomic, strong) NSString *finalResult;
-@property  (nonatomic,strong) NSMutableDictionary *check;
+@property (nonatomic,strong) NSMutableDictionary *check;
 @property(nonatomic,strong) id <xml> delegatew;
 
 - (void) doParse:(NSData *)data ;

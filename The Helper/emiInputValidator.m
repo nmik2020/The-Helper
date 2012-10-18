@@ -2,7 +2,7 @@
 //  emiInputValidator.m
 //  The Helper
 //
-//  Created by qbadmin on 10/17/12.
+//  Created by Nidal on 10/17/12.
 //
 //
 

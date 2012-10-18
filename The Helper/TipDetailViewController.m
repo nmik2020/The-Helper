@@ -23,6 +23,7 @@
 {
     [super viewDidUnload];
 }
+
 - (void)viewWillDisappear:(BOOL)animated 
 {
    self.tipamount.text = nil;

@@ -26,15 +26,10 @@ XMLParser *parsexml;
 }
 
 -(IBAction)calculateTip:(id)sender{
-   // calculator = [[coreCalculations alloc]init];
-   
-
-    NSError *error = NULL;
+      NSError *error = NULL;
     billAmountLabel.text = @"";
     rateLabel.text = @"";
     tipCanBeCalculated=TRUE;
-//    tipConnection.delegate = self;
-
     if (!tipAlert) {
         tipAlert = [[tipInputValidator alloc]init];
     }
@@ -49,7 +44,6 @@ XMLParser *parsexml;
     [rate resignFirstResponder];
     [calculate resignFirstResponder];
     parsexml = [[XMLParser alloc]init];
-    //calculator = [[coreCalculations alloc]init];
     tipRate = [rate.text doubleValue];
     totalBillValue = [billAmount.text doubleValue];
     tipConnection = [[connectToTipServer alloc]init];
@@ -94,22 +88,19 @@ XMLParser *parsexml;
         
     }
     if(tipCanBeCalculated)
-    {   //tipRate =  [rate.text doubleValue];
-        //totalBillValue = [billAmount.text doubleValue];
+    {   
         [tipConnection performRequest:tipRate andResponse:totalBillValue];
-        //        _tip=[calculator tipValue:tipRate ofAmount:totalBillValue];
-    //[self performSegueWithIdentifier:segueIdentifier sender:self];
     }
    
 }
 - (IBAction) rateTextValueChanged:(UITextField *)sender {  
     [slider setValue:[rate.text floatValue] animated:YES];
 }
-- (void) tipCalculationDidFinish:(NSString *)xmlData{
+- (void) tipCalculationDidFinish:(NSString *)xmlData
+{
     
     parsexml.delegatew = self;
     [parsexml doParse:[xmlData dataUsingEncoding:NSUTF8StringEncoding]];
-   // NSLog(@"%@",[parsexml.check valueForKey:@"value"]);
 }
 -(void)sendData:(NSString*)tip
 {   _tip = [tip doubleValue];

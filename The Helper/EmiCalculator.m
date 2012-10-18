@@ -80,6 +80,21 @@ connectToEmiServer *connection;
    
    [self performSegueWithIdentifier:emiSegueIdentifier sender:self];
 }
+-(void)serverDownError
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
+                          @"Server is Down"
+                                                    message:
+                          @"Please wait"
+                          delegate
+                                                           : self cancelButtonTitle:
+                          @"Close"
+                                          otherButtonTitles: nil];
+    
+    
+    [alert show];
+
+}
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {textField.backgroundColor = [UIColor whiteColor];

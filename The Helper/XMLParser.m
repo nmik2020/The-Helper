@@ -42,7 +42,6 @@ didStartElement:(NSString *)elementName
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if (!currentElementValue) {
         TipCalculator *tipSolver = [[TipCalculator alloc]init];
-        // init the ad hoc string with the value
         currentElementValue = [[NSMutableString alloc] initWithString:string];
         if(!finalResult)
         {finalResult = [[NSString alloc]init];
@@ -55,7 +54,6 @@ didStartElement:(NSString *)elementName
         [self.delegatew sendData:finalResult];
 
     } else {
-        // append value to the ad hoc string
         [currentElementValue appendString:string];
     }
     NSLog(@"Processing value for : %@", string);

@@ -2,12 +2,11 @@
 //  emiInputValidator.h
 //  The Helper
 //
-//  Created by qbadmin on 10/17/12.
+//  Created by Nidal on 10/17/12.
 //
 //
 
 #import <Foundation/Foundation.h>
-//#import "EmiCalculator.h"
 @class EmiCalculator;
 @interface emiInputValidator:NSObject{
     
